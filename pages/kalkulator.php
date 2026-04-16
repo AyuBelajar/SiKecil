@@ -1,161 +1,133 @@
-<!-- LOADING -->
-<div id="loading-screen">
-  <div class="loading-icon">🧠</div>
-  <div class="loading-text">Memuat Model AI...</div>
-  <div class="loading-sub">Menyiapkan Random Forest</div>
-  <div class="loading-bar"><div class="loading-bar-fill"></div></div>
-</div>
+<?php
+$pageTitle = 'Kalkulator Gizi Balita';
+$basePath  = '../';
+include '../layout/header.php';
+?>
 
-<!-- ERROR -->
-<div id="error-screen">
-  <div class="err-icon">⚠️</div>
-  <h2>Model tidak ditemukan!</h2>
-  <p>
-    File <code>model_balita.json</code> belum ada di folder project.
-  </p>
-</div>
-
-<!-- MAIN -->
-<div id="main-content">
-
-  <div class="container">
-
-    <!-- FORM -->
-    <div class="card">
-
-      <!-- Gender -->
-      <div class="gender-section">
-        <label class="gender-option">
-          <input type="radio" name="gender" value="laki-laki" checked/>
-          <div class="gender-img-wrap">
-            <img src="img/bayi-laki.png"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-            <span class="emoji-fallback" style="display:none">👦</span>
-          </div>
-          <div class="gender-label">Laki-laki</div>
-        </label>
-
-        <label class="gender-option">
-          <input type="radio" name="gender" value="perempuan"/>
-          <div class="gender-img-wrap">
-            <img src="img/bayi-perempuan.png"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-            <span class="emoji-fallback" style="display:none">👧</span>
-          </div>
-          <div class="gender-label">Perempuan</div>
-        </label>
-      </div>
-
-      <!-- INPUT -->
-      <div class="field">
-        <label>Usia anak :</label>
-        <div class="field-inputs">
-          <input type="number" id="umur" min="0" max="60" placeholder="12"/>
-          <span class="field-unit">bulan</span>
-        </div>
-      </div>
-
-      <div class="field">
-        <label>Tinggi badan :</label>
-        <div class="field-inputs">
-          <input type="number" id="tinggi" min="40" max="130" step="0.1" placeholder="72.5"/>
-          <span class="field-unit">cm</span>
-        </div>
-      </div>
-
-      <button class="btn-hitung" onclick="predict()">HITUNG</button>
+<div class="page-wrapper">
+    <div class="page-title-bar">
+        <h1>📊 Kalkulator Status Gizi</h1>
+        <p>Gunakan teknologi AI untuk memprediksi status gizi buah hati Anda berdasarkan umur dan tinggi badan.</p>
     </div>
 
-    <!-- RESULT -->
-    <div class="card">
-      <div class="result-placeholder" id="placeholder">
-        <div class="ph-icon">📊</div>
-        <p>Isi data lalu klik <strong>HITUNG</strong></p>
-      </div>
+    <div class="form-card">
+        <div class="page-icon" style="text-align: center; font-size: 3rem;">👶</div>
+        <h1 style="text-align: center;">Input Data Balita</h1>
+        <p class="sub" style="text-align: center;">Pastikan data yang dimasukkan akurat sesuai hasil pengukuran terbaru.</p>
 
-      <div id="result-panel">
-        <div class="result-header" id="res-header">—</div>
-        <div class="advice-list" id="advice-list"></div>
+        <form id="kalkulatorForm">
+            <div style="margin-bottom: 15px;">
+                <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-mid);">Nama Balita</label>
+                <input type="text" id="nama" class="form-input" placeholder="Contoh: Adek SiKecil" required>
+            </div>
 
-        <div class="conf-section">
-          <div class="conf-title">Probabilitas</div>
-          <div id="conf-bars"></div>
+            <div style="margin-bottom: 15px;">
+                <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-mid);">Jenis Kelamin</label>
+                <select id="jenis_kelamin" class="form-input" required>
+                    <option value="">-- Pilih Jenis Kelamin --</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-mid);">Umur (Bulan)</label>
+                <input type="number" id="umur" class="form-input" placeholder="Contoh: 12" min="0" max="60" required>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-mid);">Tinggi Badan (cm)</label>
+                <input type="number" step="0.1" id="tinggi" class="form-input" placeholder="Contoh: 75.5" required>
+            </div>
+
+            <button type="submit" class="form-btn" id="btnPrediksi">
+                <span id="btnText">Mulai Prediksi AI</span>
+            </button>
+        </form>
+
+        <!-- AREA HASIL PREDIKSI (Awalnya Tersembunyi) -->
+        <div id="resultArea" style="display: none; margin-top: 25px; padding: 20px; border-radius: 15px; text-align: center; border: 2px dashed var(--teal);">
+            <p style="font-size: 0.9rem; color: var(--text-mid); margin-bottom: 5px;">Hasil Prediksi Status Gizi:</p>
+            <h2 id="statusGizi" style="color: var(--teal); font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.8rem;">--</h2>
+            <div id="saranGizi" style="font-size: 0.85rem; color: var(--text-dark); margin-top: 10px; line-height: 1.5;"></div>
+            
+            <button onclick="resetForm()" style="margin-top: 15px; background: none; border: none; color: var(--text-mid); text-decoration: underline; cursor: pointer; font-size: 0.8rem;">Hitung Ulang</button>
         </div>
-      </div>
     </div>
 
-  </div>
+    <div style="margin-top: 28px; text-align: center;">
+        <a href="../index.php" style="color:var(--teal); font-size:.9rem; font-weight:600; text-decoration:none;">← Kembali ke Beranda</a>
+    </div>
 </div>
 
 <script>
-let MODEL = null;
+    const form = document.getElementById('kalkulatorForm');
+    const btnPrediksi = document.getElementById('btnPrediksi');
+    const btnText = document.getElementById('btnText');
+    const resultArea = document.getElementById('resultArea');
+    const statusGizi = document.getElementById('statusGizi');
+    const saranGizi = document.getElementById('saranGizi');
 
-fetch('model_balita.json')
-  .then(res => {
-    if (!res.ok) throw new Error();
-    return res.json();
-  })
-  .then(data => {
-    MODEL = data;
-    document.getElementById('loading-screen').style.display = 'none';
-    document.getElementById('main-content').style.display = 'block';
-  })
-  .catch(() => {
-    document.getElementById('loading-screen').style.display = 'none';
-    document.getElementById('error-screen').style.display = 'flex';
-  });
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-// RF
-function traverse(node, feat) {
-  if (node.leaf) return node.value;
-  return feat[node.feature] <= node.threshold
-    ? traverse(node.left, feat)
-    : traverse(node.right, feat);
-}
+        // 1. Ambil Data
+        const data = {
+            nama: document.getElementById('nama').value,
+            jenis_kelamin: document.getElementById('jenis_kelamin').value,
+            umur: document.getElementById('umur').value,
+            tinggi: document.getElementById('tinggi').value
+        };
 
-function rfPredict(feat) {
-  const votes = new Array(MODEL.n_classes).fill(0);
-  MODEL.trees.forEach(t => votes[traverse(t, feat)]++);
-  const total = MODEL.trees.length;
-  const proba = votes.map(v => v / total);
-  const idx = proba.indexOf(Math.max(...proba));
-  return { label: MODEL.classes[idx], proba };
-}
+        // 2. Efek Loading
+        btnPrediksi.disabled = true;
+        btnText.innerText = "Sedang Menganalisis...";
+        resultArea.style.display = 'none';
 
-// Advice
-const ADVICE = {
-  'severely stunted': { cls:'severely-stunted', items:['Stunting berat, segera ke fasilitas kesehatan'] },
-  'stunted': { cls:'stunted', items:['Indikasi stunting, cek ke posyandu'] },
-  'normal': { cls:'normal', items:['Normal, pertahankan gizi seimbang'] },
-  'tinggi': { cls:'tinggi', items:['Di atas rata-rata, tetap pantau'] }
-};
+        try {
+            // 3. Panggil API Flask (Pastikan app.py sudah jalan!)
+            const response = await fetch('http://127.0.0.1:5000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-function predict() {
-  const umur = parseFloat(document.getElementById('umur').value);
-  const tinggi = parseFloat(document.getElementById('tinggi').value);
-  const gender = document.querySelector('input[name=gender]:checked').value;
+            if (!response.ok) throw new Error('Gagal terhubung ke server AI');
 
-  if (isNaN(umur) || isNaN(tinggi)) {
-    alert('Isi data dulu!');
-    return;
-  }
+            const result = await response.json();
 
-  const genderEnc = gender === 'laki-laki' ? 0 : 1;
-  const { label, proba } = rfPredict([umur, genderEnc, tinggi]);
-  const meta = ADVICE[label];
+            // 4. Tampilkan Hasil
+            statusGizi.innerText = result.status_gizi;
+            
+            // Berikan saran sederhana berdasarkan hasil
+            let saran = "";
+            if(result.status_gizi.toLowerCase().includes("normal")) {
+                saran = "Hebat! Pertahankan pola makan bergizi dan rutin ke Posyandu.";
+            } else if(result.status_gizi.toLowerCase().includes("stunted") || result.status_gizi.toLowerCase().includes("pendek")) {
+                saran = "Perhatian: Segera konsultasikan ke tenaga kesehatan untuk penanganan stunting dini.";
+            } else {
+                saran = "Pastikan asupan protein hewani dan kalori tercukupi setiap hari.";
+            }
+            
+            saranGizi.innerHTML = `<strong>Saran:</strong> ${saran}`;
+            resultArea.style.display = 'block';
+            resultArea.scrollIntoView({ behavior: 'smooth' });
 
-  document.getElementById('placeholder').style.display = 'none';
-  document.getElementById('result-panel').style.display = 'block';
+        } catch (error) {
+            alert('Error: ' + error.message + '\nPastikan server Python (app.py) sudah dijalankan di terminal VS Code!');
+        } finally {
+            btnPrediksi.disabled = false;
+            btnText.innerText = "Mulai Prediksi AI";
+        }
+    });
 
-  document.getElementById('res-header').textContent = label;
-
-  const al = document.getElementById('advice-list');
-  al.innerHTML = '';
-  meta.items.forEach(t => {
-    const d = document.createElement('div');
-    d.className = 'advice-item';
-    d.textContent = t;
-    al.appendChild(d);
-  });
-}
+    function resetForm() {
+        form.reset();
+        resultArea.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 </script>
+
+<?php include '../layout/footer.php'; ?>
