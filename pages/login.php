@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($user && password_verify($pass, $user['password'])) {
       loginUser($user);
-      $redirect = $_GET['next'] ?? 'tumbuh.php';
+      $redirect = $_GET['next'] ?? 'profil.php';
       header('Location: ' . htmlspecialchars($redirect));
       exit;
     } else {

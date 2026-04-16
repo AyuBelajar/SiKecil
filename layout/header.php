@@ -32,6 +32,7 @@ $_curUser = $_loggedIn ? currentUser() : null;
         <a href="<?= $basePath ?? '' ?>pages/logout.php" class="nav-btn nav-btn-logout">Keluar</a>
       <?php else: ?>
         <a href="<?= $basePath ?? '' ?>pages/login.php" class="nav-btn login">Login</a>
+        <a href="<?= $basePath ?? '' ?>pages/register.php" class="nav-btn">Daftar</a>
         <a href="<?= $basePath ?? '' ?>pages/kalkulator.php" class="nav-btn">Kalkulator Gizi</a>
         <a href="<?= $basePath ?? '' ?>pages/tumbuh.php" class="nav-btn">Tumbuh Kembang</a>
         <a href="<?= $basePath ?? '' ?>pages/mpasi.php" class="nav-btn">MPASI</a>

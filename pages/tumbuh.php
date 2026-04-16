@@ -298,15 +298,15 @@ include '../layout/header.php';
 
     .ans-btn.ya:hover,
     .ans-btn.ya.selected {
-        background: var(--green);
+        background: #006400;
         color: white;
         border-color: var(--green);
     }
 
     .ans-btn.tidak:hover,
     .ans-btn.tidak.selected {
-        background: #f56c6c;
-        color: #ffffff;
+        background: #7a0b25;
+        color: white;
         border-color: #f56c6c;
     }
 
