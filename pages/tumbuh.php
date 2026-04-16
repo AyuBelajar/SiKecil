@@ -3,129 +3,510 @@ $pageTitle = 'Tumbuh Kembang';
 $basePath  = '../';
 include '../layout/header.php';
 ?>
-
 <style>
-    /* CSS spesifik untuk fitur Tumbuh Kembang */
-    .tk-hero {
-        background: #f0e9d2; /* Warna sand dari kode asli */
-        padding: 30px;
-        border-radius: 20px;
-        margin-bottom: 25px;
-        border-bottom: 3px solid #e0d5b5;
-    }
+  .tk-hero {
+    background: var(--sand);
+    padding: 28px 40px;
+    border-bottom: 3px solid var(--sand-dark);
+  }
+  .tk-hero h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .tk-hero p {
+    font-size: 14px;
+    color: var(--text-light);
+    max-width: 820px;
+    line-height: 1.75;
+    text-align: center;
+    margin: 0 auto;
+  }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiKecil - Tumbuh Kembang</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --teal: #4a9ba8;
+            --teal-dark: #3a7d88;
+            --teal-light: #e8f4f6;
+            --sand: #f0e9d2;
+            --sand-dark: #e0d5b5;
+            --text: #3a3a3a;
+            --text-light: #666;
+            --accent: #f4a04a;
+            --green: #5cb85c;
+            --red: #d9534f;
+            --yellow: #f0ad4e;
+            --radius: 16px;
+            --shadow: 0 4px 20px rgba(74, 155, 168, 0.15);
+        }
 
-    .tk-hero h2 {
-        font-family: 'Nunito', sans-serif;
-        font-size: 24px;
-        font-weight: 900;
-        margin-bottom: 10px;
-        text-align: center;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .tk-hero p {
-        font-size: 14px;
-        color: #666;
-        max-width: 820px;
-        line-height: 1.75;
-        text-align: center;
-        margin: 0 auto;
-    }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: #f5f7f8;
+            color: var(--text);
+            min-height: 100vh;
+        }
 
-    .age-tabs-wrapper {
-        background: white;
-        border-bottom: 2px solid #eee;
-        position: sticky;
-        top: 68px; /* Sesuaikan dengan tinggi navbar kamu */
-        z-index: 90;
-        margin: 0 -80px 25px; /* Menyeimbangkan padding page-wrapper */
-        padding: 0 80px;
-    }
+        /* TK HERO */
+        .tk-hero {
+            background: var(--sand);
+            padding: 28px 40px;
+            border-bottom: 3px solid var(--sand-dark);
+        }
 
-    .age-tabs {
-        display: flex;
-        justify-content: center;
-        overflow-x: auto;
-        scrollbar-width: none;
-    }
+        .tk-hero h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-align: center;
+        }
 
-    .age-tab {
-        flex: 1;
-        min-width: 120px;
-        padding: 15px 10px;
-        font-family: 'Nunito', sans-serif;
-        font-size: 14px;
-        font-weight: 800;
-        color: var(--text-mid);
-        cursor: pointer;
-        border-bottom: 3px solid transparent;
-        transition: all 0.2s;
-        text-align: center;
-    }
+        .tk-hero p {
+            font-size: 14px;
+            color: var(--text-light);
+            max-width: 820px;
+            line-height: 1.75;
+            text-align: center;
+            margin: 0 auto;
+        }
 
-    .age-tab.active {
-        color: var(--teal);
-        border-bottom-color: var(--teal);
-        background: var(--teal-light);
-    }
+        /* AGE TABS */
+        .age-tabs-wrapper {
+            background: white;
+            border-bottom: 2px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
 
-    /* Styling Kuesioner */
-    .question-card {
-        background: white;
-        border-radius: 14px;
-        padding: 20px;
-        margin-bottom: 15px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        border-left: 5px solid #eee;
-    }
+        .age-tabs {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 0;
+        }
 
-    .question-card.answered-ya { border-left-color: #5cb85c; background: #f9fff9; }
-    .question-card.answered-tidak { border-left-color: #d9534f; background: #fff9f9; }
+        .age-tabs::-webkit-scrollbar {
+            display: none;
+        }
 
-    .q-top { display: flex; gap: 15px; margin-bottom: 15px; }
-    .qnum {
-        width: 30px; height: 30px; background: var(--teal); color: white;
-        border-radius: 50%; display: flex; align-items: center; justify-content: center;
-        font-weight: bold; flex-shrink: 0;
-    }
+        .age-tab {
+            flex: 1;
+            min-width: 0;
+            max-width: 160px;
+            padding: 15px 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text-light);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+            white-space: nowrap;
+            text-align: center;
+        }
 
-    .answer-buttons { display: flex; gap: 10px; }
-    .ans-btn {
-        flex: 1; padding: 10px; border-radius: 10px; border: 2px solid #ddd;
-        background: white; font-weight: bold; cursor: pointer; transition: 0.2s;
-    }
-    .ans-btn.ya:hover, .ans-btn.ya.selected { background: #5cb85c; color: white; border-color: #5cb85c; }
-    .ans-btn.tidak:hover, .ans-btn.tidak.selected { background: #d9534f; color: white; border-color: #d9534f; }
+        .age-tab:hover {
+            color: var(--teal);
+        }
 
-    .result-box {
-        padding: 30px; border-radius: 20px; text-align: center; margin-top: 30px;
-        display: none; animation: fadeIn 0.5s;
-    }
-    .result-box.sesuai { background: #e8f5e9; border: 2px solid #4caf50; }
-    .result-box.meragukan { background: #fffde7; border: 2px solid #fbc02d; }
-    .result-box.penyimpangan { background: #ffebee; border: 2px solid #ef5350; }
+        .age-tab.active {
+            color: var(--teal-dark);
+            border-bottom-color: var(--teal);
+            background: var(--teal-light);
+        }
 
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    
-    @media (max-width: 820px) {
-        .age-tabs-wrapper { margin: 0 -24px 20px; padding: 0 24px; }
-    }
-</style>
+        /* KUESIONER */
+        .kuesioner-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 28px 20px 60px;
+        }
 
-<div class="page-wrapper">
-    <div class="page-title-bar">
-        <h1>📈 Tumbuh Kembang</h1>
-        <p>Pantau milestone perkembangan buah hati Anda sesuai standar Kemenkes RI.</p>
-    </div>
+        .kuesioner-panel {
+            display: none;
+        }
+
+        .kuesioner-panel.active {
+            display: block;
+            animation: fadeSlide 0.32s ease;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .kuesioner-header {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .tools-box {
+            background: white;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 14px;
+            border: 1.5px solid #ddeef0;
+            display: flex;
+            gap: 10px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .tools-box .ti {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .tools-box strong {
+            color: var(--teal-dark);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .tip-box {
+            background: #fff8ee;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 10px 10px 0;
+            padding: 11px 15px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #7a5a20;
+            line-height: 1.6;
+        }
+
+        .tip-box strong {
+            color: #b07020;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .progress-bar-wrap {
+            background: #e0ecee;
+            border-radius: 50px;
+            height: 9px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--teal), var(--accent));
+            border-radius: 50px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 2px solid transparent;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .question-card.answered-ya {
+            border-color: var(--green);
+            background: #f3fdf3;
+        }
+
+        .question-card.answered-tidak {
+            border-color: #ddd;
+            background: #fafafa;
+        }
+
+        .q-top {
+            display: flex;
+            gap: 11px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .qnum {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 25px;
+            height: 25px;
+            background: var(--teal-light);
+            color: var(--teal-dark);
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 2px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .q-content {
+            flex: 1;
+        }
+
+        .question-text {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .domain-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 30px;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .domain-tag.gerak-kasar {
+            background: #fff0e0;
+            color: #b05010;
+        }
+
+        .domain-tag.gerak-halus {
+            background: #e0eeff;
+            color: #1050a0;
+        }
+
+        .domain-tag.bicara {
+            background: #e8f8e8;
+            color: #206020;
+        }
+
+        .domain-tag.sosialisasi {
+            background: #f5e0ff;
+            color: #6020a0;
+        }
+
+        .answer-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .ans-btn {
+            flex: 1;
+            padding: 9px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.18s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .ans-btn.ya {
+            color: var(--green);
+        }
+
+        .ans-btn.tidak {
+            color: #e66969;
+        }
+
+        .ans-btn.ya:hover,
+        .ans-btn.ya.selected {
+            background: var(--green);
+            color: white;
+            border-color: var(--green);
+        }
+
+        .ans-btn.tidak:hover,
+        .ans-btn.tidak.selected {
+            background: #f56c6c;
+            color: #ffffff;
+            border-color: #f56c6c;
+        }
+
+        .btn-submit {
+            background: var(--teal);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin: 12px auto 0;
+            display: block;
+            box-shadow: 0 4px 14px rgba(74, 155, 168, 0.35);
+        }
+
+        .btn-submit:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            background: #bfcfd3;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .result-box {
+            display: none;
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            margin-top: 22px;
+            text-align: center;
+            animation: fadeSlide 0.4s ease;
+        }
+
+        .result-box.sesuai {
+            background: linear-gradient(135deg, #edfced, #ccf0cc);
+            border: 2px solid #4caf50;
+        }
+
+        .result-box.meragukan {
+            background: linear-gradient(135deg, #fffaec, #fff0ba);
+            border: 2px solid var(--yellow);
+        }
+
+        .result-box.penyimpangan {
+            background: linear-gradient(135deg, #fff5f5, #ffd8d0);
+            border: 2px solid var(--red);
+        }
+
+        .result-emoji {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .result-title {
+            font-family: 'Nunito', sans-serif;
+            font-size: 21px;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        .result-score {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 14px;
+        }
+
+        .result-desc {
+            font-size: 14px;
+            line-height: 1.75;
+            color: var(--text);
+            margin-bottom: 18px;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn-reset {
+            background: white;
+            border: 2px solid var(--teal);
+            color: var(--teal);
+            padding: 9px 22px;
+            border-radius: 30px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-reset:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .tk-hero {
+                padding: 20px 16px;
+            }
+
+            .kuesioner-container {
+                padding: 14px 10px 50px;
+            }
+
+            .kuesioner-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .age-tab {
+                font-size: 12px;
+                padding: 12px 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
 
     <div class="tk-hero">
         <h2>Hai Bunda!</h2>
         <p>
-            Gunakan <strong>KPSP (Kuesioner Pra Skrining Perkembangan)</strong> untuk melihat perkembangan anak pada 4 aspek: 
-            Motorik Kasar, Motorik Halus, Bicara & Bahasa, serta Sosialisasi & Kemandirian.
+            <strong>Milestone</strong> adalah tahapan perkembangan yang biasanya dicapai anak sesuai usianya,
+            seperti tengkurap, duduk, berjalan, atau mulai berbicara.
+            Gunakan <strong>KPSP (Kuesioner Pra Skrining Perkembangan)</strong> — alat skrining resmi dari
+            <strong>Kementerian Kesehatan RI (2021)</strong>
+            yang berisi pertanyaan sederhana untuk melihat perkembangan anak sesuai tahap usianya pada 4 aspek:
+            Motorik Kasar, Motorik Halus, bicara &amp; bahasa, serta sosialisasi &amp; kemandirian.
         </p>
     </div>
 
-    <!-- Navigasi Usia -->
     <div class="age-tabs-wrapper">
         <div class="age-tabs" id="ageTabs">
             <div class="age-tab active" data-key="0-2" onclick="switchAge('0-2', this)">0–2 Bulan</div>
@@ -137,22 +518,15 @@ include '../layout/header.php';
         </div>
     </div>
 
-    <!-- Wadah Kuesioner (Akan diisi oleh JS) -->
-    <div id="kuesionerContainer"></div>
+    <div class="kuesioner-container" id="kuesionerContainer"></div>
 
-    <div style="margin-top:28px;">
-        <a href="../index.php" style="color:var(--teal);font-size:.9rem;font-weight:600;text-decoration:none;">← Kembali ke Beranda</a>
-    </div>
-</div>
-
-<script>
-    // Copy data kpspData dari file asli kamu ke sini
-    const kpspData = {
-        '0-2': {
-            title: 'KPSP Bayi Umur 0-2 Bulan',
-            desc: 'Bayi mulai mengangkat kepala, merespons suara, dan membalas senyuman.',
-            tools: 'Gulungan wool merah',
-            questions: [
+    <script>
+        const kpspData = {
+            '0-2': {
+                title: 'KPSP Bayi Umur 0-2 Bulan',
+                desc: 'Bayi mulai mengangkat kepala, merespons suara, dan membalas senyuman sebagai tanda awal interaksi sosial.',
+                tools: 'Gulungan wool merah',
+                questions: [
                     { text: 'Ambil gulungan wool merah, lalu gerakkan perlahan dari kiri ke kanan di depan wajah bayi. Apakah matanya mengikuti gerakan tersebut hingga ke tengah?', domain: 'gerak-halus', label: 'Motorik Halus' },
                     { text: 'Ambil gulungan wool merah, lalu gerakkan perlahan dari kiri ke kanan di depan wajah bayi. Apakah kepala bayi mengikuti gerakan tersebut hampir sampai ke sisi yang lain?', domain: 'gerak-halus', label: 'Motorik Halus' },
                     { text: 'Saat bayi tengkurap di permukaan yang datar, apakah ia bisa sedikit mengangkat kepalanya?', domain: 'gerak-kasar', label: 'Motorik Kasar' },
@@ -252,98 +626,124 @@ include '../layout/header.php';
             }
         };
 
-    const state = {};
-    Object.keys(kpspData).forEach(k => { state[k] = {}; });
-    let currentKey = '0-2';
+        const state = {};
+        Object.keys(kpspData).forEach(k => { state[k] = {}; });
+        let currentKey = '0-2';
 
-    function sk(key) { return key.replace(/-/g, '_'); }
+        function sk(key) { return key.replace(/-/g, '_'); }
 
-    function renderAll() {
-        const container = document.getElementById('kuesionerContainer');
-        container.innerHTML = '';
-        Object.keys(kpspData).forEach(key => {
-            const panel = document.createElement('div');
-            panel.id = `panel-${sk(key)}`;
-            panel.style.display = (key === currentKey ? 'block' : 'none');
-            panel.innerHTML = buildPanel(key);
-            container.appendChild(panel);
-        });
-    }
-
-    function buildPanel(key) {
-        const d = kpspData[key], s = sk(key);
-        const qs = d.questions.map((q, i) => `
-            <div class="question-card" id="qcard-${s}-${i}">
-                <div class="q-top">
-                    <div class="qnum">${i + 1}</div>
-                    <div>
-                        <div class="question-text">${q.text}</div>
-                        <span style="font-size:10px; font-weight:bold; color:var(--teal); text-transform:uppercase;">${q.label}</span>
-                    </div>
-                </div>
-                <div class="answer-buttons">
-                    <button class="ans-btn ya" onclick="answer('${key}',${i},'ya')">✅ Ya</button>
-                    <button class="ans-btn tidak" onclick="answer('${key}',${i},'tidak')">❌ Tidak</button>
-                </div>
-            </div>`).join('');
-
-        return `
-            <div style="background:var(--teal); color:white; padding:20px; border-radius:15px; margin-bottom:20px;">
-                <h3 style="margin:0">${d.title}</h3>
-                <p style="margin:5px 0 0; font-size:0.9rem; opacity:0.9">${d.desc}</p>
-            </div>
-            <div style="background:#fff8ee; padding:15px; border-radius:10px; margin-bottom:20px; font-size:0.9rem;">
-                <strong>Alat:</strong> ${d.tools}
-            </div>
-            ${qs}
-            <button class="form-btn" id="bsub-${s}" onclick="submitResult('${key}')" disabled style="margin-top:20px">🔍 Lihat Hasil Penilaian</button>
-            <div class="result-box" id="res-${s}"></div>
-        `;
-    }
-
-    function answer(key, idx, val) {
-        const s = sk(key);
-        state[key][idx] = val;
-        const card = document.getElementById(`qcard-${s}-${idx}`);
-        card.className = 'question-card answered-' + val;
-        
-        const answered = Object.keys(state[key]).length;
-        const total = kpspData[key].questions.length;
-        document.getElementById(`bsub-${s}`).disabled = answered < total;
-    }
-
-    function submitResult(key) {
-        const s = sk(key);
-        const yaCount = Object.values(state[key]).filter(v => v === 'ya').length;
-        const total = kpspData[key].questions.length;
-        let cls, emoji, title, desc;
-
-        if (yaCount >= 9) {
-            cls = 'sesuai'; emoji = '🌟'; title = 'Perkembangan Sesuai Umur';
-            desc = `Skor ${yaCount}/${total}. Teruskan pola asuh dan stimulasi harian Bunda!`;
-        } else if (yaCount >= 7) {
-            cls = 'meragukan'; emoji = '🤔'; title = 'Hasil Meragukan';
-            desc = `Skor ${yaCount}/${total}. Berikan stimulasi lebih sering dan cek kembali 2 minggu lagi.`;
-        } else {
-            cls = 'penyimpangan'; emoji = '⚠️'; title = 'Perlu Konsultasi';
-            desc = `Skor ${yaCount}/${total}. Segera konsultasikan ke dokter anak untuk pemeriksaan lebih lanjut.`;
+        function renderAll() {
+            const container = document.getElementById('kuesionerContainer');
+            container.innerHTML = '';
+            Object.keys(kpspData).forEach(key => {
+                const panel = document.createElement('div');
+                panel.id = `panel-${sk(key)}`;
+                panel.className = 'kuesioner-panel' + (key === currentKey ? ' active' : '');
+                panel.innerHTML = buildPanel(key);
+                container.appendChild(panel);
+            });
         }
 
-        const box = document.getElementById(`res-${s}`);
-        box.className = `result-box ${cls}`;
-        box.style.display = 'block';
-        box.innerHTML = `<h2>${emoji} ${title}</h2><p>${desc}</p>`;
-        box.scrollIntoView({ behavior: 'smooth' });
-    }
+        function buildPanel(key) {
+            const d = kpspData[key], s = sk(key), total = d.questions.length;
+            const qs = d.questions.map((q, i) => `
+    <div class="question-card" id="qcard-${s}-${i}">
+      <div class="q-top">
+        <div class="qnum">${i + 1}</div>
+        <div class="q-content">
+          <div class="question-text">${q.text}</div>
+          <span class="domain-tag ${q.domain}">${q.label}</span>
+        </div>
+      </div>
+      <div class="answer-buttons">
+        <button class="ans-btn ya"    onclick="answer('${key}',${i},'ya')">✅ Ya</button>
+        <button class="ans-btn tidak" onclick="answer('${key}',${i},'tidak')">❌ Tidak</button>
+      </div>
+    </div>`).join('');
 
-    function switchAge(key, tabEl) {
-        currentKey = key;
-        document.querySelectorAll('.age-tab').forEach(t => t.classList.remove('active'));
-        tabEl.classList.add('active');
+            return `
+    <div class="kuesioner-header">
+      <div class="header-info"><h3>${d.title}</h3><p>${d.desc}</p></div>
+    </div>
+    <div class="tools-box">
+      <div class="ti">🧰</div>
+      <div><strong>Alat yang dibutuhkan</strong>${d.tools}</div>
+    </div>
+    <div class="tip-box">
+      💡 <strong>Petunjuk:</strong> Jawab setiap pertanyaan berdasarkan kemampuan si kecil sehari-hari.
+      Pilih <strong>Ya</strong> bila pernah, kadang, atau sering melakukan.
+      Pilih <strong>Tidak</strong> bila belum pernah atau tidak bisa.
+    </div>
+    <div class="progress-label">
+      <span id="plbl-${s}">0 / ${total} pertanyaan dijawab</span>
+      <span id="ppct-${s}">0%</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="pbar-${s}"></div></div>
+    ${qs}
+    <button class="btn-submit" id="bsub-${s}" onclick="submitResult('${key}')" disabled>🔍 Lihat Hasil Penilaian</button>
+    <div class="result-box" id="res-${s}"></div>`;
+        }
+
+        function answer(key, idx, val) {
+            const s = sk(key);
+            state[key][idx] = val;
+            const card = document.getElementById(`qcard-${s}-${idx}`);
+            card.className = 'question-card answered-' + val;
+            const btns = card.querySelectorAll('.ans-btn');
+            btns[0].classList.toggle('selected', val === 'ya');
+            btns[1].classList.toggle('selected', val === 'tidak');
+            const answered = Object.keys(state[key]).length;
+            const total = kpspData[key].questions.length;
+            const pct = Math.round(answered / total * 100);
+            document.getElementById(`pbar-${s}`).style.width = pct + '%';
+            document.getElementById(`plbl-${s}`).textContent = `${answered} / ${total} pertanyaan dijawab`;
+            document.getElementById(`ppct-${s}`).textContent = pct + '%';
+            document.getElementById(`bsub-${s}`).disabled = answered < total;
+        }
+
+        function submitResult(key) {
+            const s = sk(key);
+            const yaCount = Object.values(state[key]).filter(v => v === 'ya').length;
+            const total = kpspData[key].questions.length;
+            let cls, emoji, title, desc;
+            if (yaCount >= 9) {
+                cls = 'sesuai'; emoji = '🌟'; title = 'Perkembangan Sesuai Umur';
+                desc = `Skor ${yaCount}/${total}. Perkembangan si kecil <strong>sesuai dengan usianya</strong>. Bunda sudah merawat dan menstimulasi dengan sangat baik! Teruskan pola asuh sesuai tahapan, berikan stimulasi setiap saat, dan jadwalkan pemeriksaan KPSP berikutnya.`;
+            } else if (yaCount >= 7) {
+                cls = 'meragukan'; emoji = '🤔'; title = 'Hasil Meragukan';
+                desc = `Skor ${yaCount}/${total}. Perkembangan si kecil <strong>perlu perhatian lebih</strong>. Berikan stimulasi lebih sering pada aspek yang belum berkembang. Evaluasi kembali setelah 2 minggu — bila skor tetap 7 atau 8, konsultasikan ke dokter atau tenaga kesehatan.`;
+            } else {
+                cls = 'penyimpangan'; emoji = '⚠️'; title = 'Perlu Pemeriksaan Lanjutan';
+                desc = `Skor ${yaCount}/${total}. Terdeteksi kemungkinan <strong>penyimpangan perkembangan</strong>. Segera konsultasikan ke dokter anak atau tenaga kesehatan untuk pemeriksaan menyeluruh (anamnesis, pemeriksaan fisik, neurologis) dan intervensi dini.`;
+            }
+            const box = document.getElementById(`res-${s}`);
+            box.className = `result-box ${cls}`;
+            box.style.display = 'block';
+            box.innerHTML = `
+    <div class="result-emoji">${emoji}</div>
+    <div class="result-title">${title}</div>
+    <div class="result-score">Skor Ya: <strong>${yaCount}</strong> dari <strong>${total}</strong> pertanyaan</div>
+    <div class="result-desc">${desc}</div>
+    <div class="result-actions"><button class="btn-reset" onclick="resetQuiz('${key}')">🔄 Ulangi Kuesioner</button></div>`;
+            box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz(key) {
+            state[key] = {};
+            document.getElementById(`panel-${sk(key)}`).innerHTML = buildPanel(key);
+        }
+
+        function switchAge(key, tabEl) {
+            currentKey = key;
+            document.querySelectorAll('.age-tab').forEach(t => t.classList.remove('active'));
+            tabEl.classList.add('active');
+            document.querySelectorAll('.kuesioner-panel').forEach(p => p.classList.remove('active'));
+            const t = document.getElementById(`panel-${sk(key)}`);
+            if (t) t.classList.add('active');
+            tabEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+
         renderAll();
-    }
-
-    renderAll();
-</script>
+    </script>
 
 <?php include '../layout/footer.php'; ?>

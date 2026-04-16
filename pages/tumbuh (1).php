@@ -1,6 +1,29 @@
-<!DOCTYPE html>
-<html lang="id">
-
+<?php
+$pageTitle = 'Tumbuh Kembang';
+$basePath  = '../';
+include '../layout/header.php';
+?>
+<style>
+  .tk-hero {
+    background: var(--sand);
+    padding: 28px 40px;
+    border-bottom: 3px solid var(--sand-dark);
+  }
+  .tk-hero h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .tk-hero p {
+    font-size: 14px;
+    color: var(--text-light);
+    max-width: 820px;
+    line-height: 1.75;
+    text-align: center;
+    margin: 0 auto;
+  }
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
