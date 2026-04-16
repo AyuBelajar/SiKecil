@@ -894,7 +894,7 @@ include '../layout/header.php';
                     },
                     {
                         img: 'Bubur-Kanju.jpg',   // ← file lokal
-                        title: 'Bubur Kanju Rumbi Ayam dan Udang',
+                        title: 'Bubur Kanji Rumbi Ayam dan Udang',
                         tags: ['Rempah Khas', 'Protein Ganda'],
                         kkal: '87 kkal', protein: '5.1 gr', lemak: '2.9 gr',
                         porsi: 'Resep untuk 3 porsi',
