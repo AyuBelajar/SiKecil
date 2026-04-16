@@ -3,7 +3,7 @@ $pageTitle = 'MPASI';
 $basePath  = '../';
 include '../layout/header.php';
 ?>
-
+<div class="mpasi-page">
 <style>
     :root {
         --teal: #4a9ba8;
@@ -37,26 +37,6 @@ include '../layout/header.php';
         min-height: 100vh;
     }
 
-    .navbar {
-        display: flex;
-        align-items: stretch;
-        background: #fff;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-
-    .navbar-brand {
-        display: flex;
-        align-items: center;
-        padding: 0 28px;
-        background: #fff;
-        clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
-        min-width: 180px;
-        text-decoration: none;
-    }
-
     .brand-logo {
         font-family: 'Nunito', sans-serif;
         font-weight: 900;
@@ -72,38 +52,6 @@ include '../layout/header.php';
         color: var(--accent);
     }
 
-    .navbar-menu {
-        display: flex;
-        align-items: center;
-        background: var(--teal);
-        flex: 1;
-        padding: 0 20px;
-        gap: 12px;
-    }
-
-    .nav-btn {
-        background: rgba(255, 255, 255, 0.15);
-        color: #fff;
-        border: none;
-        border-radius: 50px;
-        padding: 8px 18px;
-        font-family: 'Quicksand', sans-serif;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s;
-        text-decoration: none;
-    }
-
-    .nav-btn:hover,
-    .nav-btn.active {
-        background: rgba(255, 255, 255, 0.3);
-    }
-
-    .nav-btn.login {
-        background: rgba(255, 255, 255, 0.2);
-        margin-left: auto;
-    }
 
     .age-tabs-wrap {
         background: var(--teal-light);
@@ -1178,5 +1126,5 @@ include '../layout/header.php';
         // Init
         renderRecipes(ageData['6-8'].recipes);
     </script>
-
+</div>
 <?php include '../layout/footer.php'; ?>
