@@ -1,14 +1,21 @@
 <?php
 $pageTitle = 'Beranda';
-$basePath  = '';
+$basePath = '';
 include 'layout/header.php';
 ?>
 
 <style>
   /* ── HERO (fullscreen background) ── */
   @keyframes fadeUp {
-    from { opacity:0; transform: translateY(32px); }
-    to   { opacity:1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(32px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .hero {
@@ -29,13 +36,11 @@ include 'layout/header.php';
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(237,246,246,0.97) 0%,
-      rgba(237,246,246,0.85) 45%,
-      rgba(237,246,246,0.10) 75%,
-      transparent 100%
-    );
+    background: linear-gradient(to right,
+        rgba(237, 246, 246, 0.97) 0%,
+        rgba(237, 246, 246, 0.85) 45%,
+        rgba(237, 246, 246, 0.10) 75%,
+        transparent 100%);
     pointer-events: none;
   }
 
@@ -77,12 +82,13 @@ include 'layout/header.php';
     border-radius: 50px;
     cursor: pointer;
     text-decoration: none;
-    box-shadow: 0 6px 24px rgba(245,200,66,0.50);
+    box-shadow: 0 6px 24px rgba(245, 200, 66, 0.50);
     transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
   }
+
   .btn-mulai:hover {
     transform: translateY(-3px) scale(1.04);
-    box-shadow: 0 10px 30px rgba(245,200,66,0.60);
+    box-shadow: 0 10px 30px rgba(245, 200, 66, 0.60);
     background: var(--yellow-dark);
   }
 
@@ -114,34 +120,42 @@ include 'layout/header.php';
     flex: 1;
     max-width: 300px;
   }
+
   .feat-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(58,172,168,0.18);
+    box-shadow: 0 16px 40px rgba(58, 172, 168, 0.18);
     border-color: var(--teal-light);
   }
 
   /* Icon: mix-blend-mode multiply menghilangkan background hitam PNG */
   .feat-icon {
-    width: 68px; height: 68px;
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
     background: var(--yellow);
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
     padding: 10px;
     transition: transform 0.25s, background 0.25s;
-    box-shadow: 0 4px 14px rgba(245,200,66,0.30);
+    box-shadow: 0 4px 14px rgba(245, 200, 66, 0.30);
     overflow: hidden;
   }
+
   .feat-icon img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    mix-blend-mode: multiply;   /* ← hilangkan background hitam PNG */
+    mix-blend-mode: multiply;
+    /* ← hilangkan background hitam PNG */
   }
+
   .feat-card:hover .feat-icon {
     transform: rotate(-8deg) scale(1.1);
     background: var(--teal);
   }
+
   /* saat hover di atas teal, pakai screen agar icon tetap terlihat */
   .feat-card:hover .feat-icon img {
     mix-blend-mode: screen;
@@ -156,11 +170,28 @@ include 'layout/header.php';
   }
 
   @media (max-width: 820px) {
-    .hero { min-height: 70vw; background-position: right center; }
-    .hero-text { padding: 40px 28px; max-width: 100%; }
-    .hero-text h1 { font-size: 2rem; }
-    .features { padding: 32px 24px 48px; gap: 16px; }
-    .feat-card { max-width: 100%; }
+    .hero {
+      min-height: 70vw;
+      background-position: right center;
+    }
+
+    .hero-text {
+      padding: 40px 28px;
+      max-width: 100%;
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+    }
+
+    .features {
+      padding: 32px 24px 48px;
+      gap: 16px;
+    }
+
+    .feat-card {
+      max-width: 100%;
+    }
   }
 </style>
 
@@ -177,19 +208,19 @@ include 'layout/header.php';
 <section class="features">
   <a href="pages/kalkulator.php" class="feat-card">
     <div class="feat-icon">
-      <img src="assets/img/Logo_kalkulator.png" alt="Kalkulator Gizi"/>
+      <img src="assets/img/Logo_kalkulator.png" alt="Kalkulator Gizi" />
     </div>
     <div class="feat-label">Kalkulator<br>Gizi</div>
   </a>
   <a href="pages/tumbuh.php" class="feat-card">
     <div class="feat-icon">
-      <img src="assets/img/Logo_Tumbuh_Kembang.png" alt="Tumbuh Kembang"/>
+      <img src="assets/img/Logo_Tumbuh_Kembang.png" alt="Tumbuh Kembang" />
     </div>
     <div class="feat-label">Tumbuh<br>Kembang</div>
   </a>
   <a href="pages/mpasi.php" class="feat-card">
     <div class="feat-icon">
-      <img src="assets/img/Logo_MPASI.png" alt="MPASI"/>
+      <img src="assets/img/Logo_MPASI.png" alt="MPASI" />
     </div>
     <div class="feat-label">MPASI</div>
   </a>

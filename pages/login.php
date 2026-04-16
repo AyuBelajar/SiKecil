@@ -4,42 +4,42 @@ require_once '../config/db.php';
 require_once '../includes/auth.php';
 
 if (isLoggedIn()) {
-    header('Location: tumbuh.php');
-    exit;
+  header('Location: tumbuh.php');
+  exit;
 }
 
 $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email'] ?? '');
-    $pass  = $_POST['password']   ?? '';
+  $email = trim($_POST['email'] ?? '');
+  $pass = $_POST['password'] ?? '';
 
-    if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = 'Masukkan email yang valid.';
-    }
-    if (!$pass) {
-        $errors[] = 'Password tidak boleh kosong.';
-    }
+  if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'Masukkan email yang valid.';
+  }
+  if (!$pass) {
+    $errors[] = 'Password tidak boleh kosong.';
+  }
 
-    if (empty($errors)) {
-        $db   = getDB();
-        $stmt = $db->prepare('SELECT id, nama, email, password FROM users WHERE email = ? LIMIT 1');
-        $stmt->execute([$email]);
-        $user = $stmt->fetch();
+  if (empty($errors)) {
+    $db = getDB();
+    $stmt = $db->prepare('SELECT id, nama, email, password FROM users WHERE email = ? LIMIT 1');
+    $stmt->execute([$email]);
+    $user = $stmt->fetch();
 
-        if ($user && password_verify($pass, $user['password'])) {
-            loginUser($user);
-            $redirect = $_GET['next'] ?? 'tumbuh.php';
-            header('Location: ' . htmlspecialchars($redirect));
-            exit;
-        } else {
-            $errors[] = 'Email atau password salah.';
-        }
+    if ($user && password_verify($pass, $user['password'])) {
+      loginUser($user);
+      $redirect = $_GET['next'] ?? 'tumbuh.php';
+      header('Location: ' . htmlspecialchars($redirect));
+      exit;
+    } else {
+      $errors[] = 'Email atau password salah.';
     }
+  }
 }
 
 $pageTitle = 'Login';
-$basePath  = '../';
+$basePath = '../';
 include '../layout/header.php';
 ?>
 
@@ -65,13 +65,11 @@ include '../layout/header.php';
 
     <form method="POST">
       <label class="form-label">Email</label>
-      <input class="form-input" type="email" name="email"
-             placeholder="email@kamu.com"
-             value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required/>
+      <input class="form-input" type="email" name="email" placeholder="email@kamu.com"
+        value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required />
 
       <label class="form-label">Password</label>
-      <input class="form-input" type="password" name="password"
-             placeholder="••••••••" required/>
+      <input class="form-input" type="password" name="password" placeholder="••••••••" required />
 
       <button class="form-btn" type="submit">Masuk</button>
     </form>
