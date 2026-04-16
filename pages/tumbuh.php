@@ -3,499 +3,439 @@ $pageTitle = 'Tumbuh Kembang';
 $basePath  = '../';
 include '../layout/header.php';
 ?>
+
 <style>
-  .tk-hero {
-    background: var(--sand);
-    padding: 28px 40px;
-    border-bottom: 3px solid var(--sand-dark);
-  }
-  .tk-hero h2 {
-    font-family: 'Nunito', sans-serif;
-    font-size: 24px;
-    font-weight: 900;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  .tk-hero p {
-    font-size: 14px;
-    color: var(--text-light);
-    max-width: 820px;
-    line-height: 1.75;
-    text-align: center;
-    margin: 0 auto;
-  }
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SiKecil - Tumbuh Kembang</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --teal: #4a9ba8;
-            --teal-dark: #3a7d88;
-            --teal-light: #e8f4f6;
-            --sand: #f0e9d2;
-            --sand-dark: #e0d5b5;
-            --text: #3a3a3a;
-            --text-light: #666;
-            --accent: #f4a04a;
-            --green: #5cb85c;
-            --red: #d9534f;
-            --yellow: #f0ad4e;
-            --radius: 16px;
-            --shadow: 0 4px 20px rgba(74, 155, 168, 0.15);
-        }
+    /* TK HERO */
+    .tk-hero {
+        background: var(--sand);
+        padding: 28px 40px;
+        border-bottom: 3px solid var(--sand-dark);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .tk-hero h2 {
+        font-family: 'Nunito', sans-serif;
+        font-size: 24px;
+        font-weight: 900;
+        margin-bottom: 10px;
+        text-align: center;
+    }
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: #f5f7f8;
-            color: var(--text);
-            min-height: 100vh;
-        }
+    .tk-hero p {
+        font-size: 14px;
+        color: var(--text-light);
+        max-width: 820px;
+        line-height: 1.75;
+        text-align: center;
+        margin: 0 auto;
+    }
 
-        /* TK HERO */
+    /* AGE TABS */
+    .age-tabs-wrapper {
+        background: white;
+        border-bottom: 2px solid #eee;
+        position: sticky;
+        top: 0;
+        z-index: 90;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .age-tabs {
+        display: flex;
+        justify-content: center;
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding: 0;
+    }
+
+    .age-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .age-tab {
+        flex: 1;
+        min-width: 0;
+        max-width: 160px;
+        padding: 15px 10px;
+        font-family: 'Nunito', sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--text-light);
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .age-tab:hover {
+        color: var(--teal);
+    }
+
+    .age-tab.active {
+        color: var(--teal-dark);
+        border-bottom-color: var(--teal);
+        background: var(--teal-light);
+    }
+
+    /* KUESIONER */
+    .kuesioner-container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 28px 20px 60px;
+    }
+
+    .kuesioner-panel {
+        display: none;
+    }
+
+    .kuesioner-panel.active {
+        display: block;
+        animation: fadeSlide 0.32s ease;
+    }
+
+    @keyframes fadeSlide {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .kuesioner-header {
+        background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+        border-radius: var(--radius);
+        padding: 20px 24px;
+        margin-bottom: 16px;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .tools-box {
+        background: white;
+        border-radius: 12px;
+        padding: 12px 16px;
+        margin-bottom: 14px;
+        border: 1.5px solid #ddeef0;
+        display: flex;
+        gap: 10px;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .tools-box .ti {
+        font-size: 18px;
+        flex-shrink: 0;
+        margin-top: 1px;
+    }
+
+    .tools-box strong {
+        color: var(--teal-dark);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: block;
+        margin-bottom: 2px;
+    }
+
+    .tip-box {
+        background: #fff8ee;
+        border-left: 4px solid var(--accent);
+        border-radius: 0 10px 10px 0;
+        padding: 11px 15px;
+        margin-bottom: 16px;
+        font-size: 13px;
+        color: #7a5a20;
+        line-height: 1.6;
+    }
+
+    .tip-box strong {
+        color: #b07020;
+    }
+
+    .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: var(--text-light);
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .progress-bar-wrap {
+        background: #e0ecee;
+        border-radius: 50px;
+        height: 9px;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, var(--teal), var(--accent));
+        border-radius: 50px;
+        transition: width 0.4s ease;
+        width: 0%;
+    }
+
+    .question-card {
+        background: white;
+        border-radius: 14px;
+        padding: 18px 20px;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border: 2px solid transparent;
+        transition: border-color 0.2s, background 0.2s;
+    }
+
+    .question-card.answered-ya {
+        border-color: var(--green);
+        background: #f3fdf3;
+    }
+
+    .question-card.answered-tidak {
+        border-color: #ddd;
+        background: #fafafa;
+    }
+
+    .q-top {
+        display: flex;
+        gap: 11px;
+        align-items: flex-start;
+        margin-bottom: 12px;
+    }
+
+    .qnum {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        background: var(--teal-light);
+        color: var(--teal-dark);
+        border-radius: 50%;
+        font-size: 11px;
+        font-weight: 800;
+        flex-shrink: 0;
+        margin-top: 2px;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .q-content {
+        flex: 1;
+    }
+
+    .question-text {
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--text);
+    }
+
+    .domain-tag {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 30px;
+        margin-top: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+
+    .domain-tag.gerak-kasar {
+        background: #fff0e0;
+        color: #b05010;
+    }
+
+    .domain-tag.gerak-halus {
+        background: #e0eeff;
+        color: #1050a0;
+    }
+
+    .domain-tag.bicara {
+        background: #e8f8e8;
+        color: #206020;
+    }
+
+    .domain-tag.sosialisasi {
+        background: #f5e0ff;
+        color: #6020a0;
+    }
+
+    .answer-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .ans-btn {
+        flex: 1;
+        padding: 9px;
+        border-radius: 10px;
+        border: 2px solid #e0e0e0;
+        background: white;
+        font-family: 'Nunito', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.18s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .ans-btn.ya {
+        color: var(--green);
+    }
+
+    .ans-btn.tidak {
+        color: #e66969;
+    }
+
+    .ans-btn.ya:hover,
+    .ans-btn.ya.selected {
+        background: var(--green);
+        color: white;
+        border-color: var(--green);
+    }
+
+    .ans-btn.tidak:hover,
+    .ans-btn.tidak.selected {
+        background: #f56c6c;
+        color: #ffffff;
+        border-color: #f56c6c;
+    }
+
+    .btn-submit {
+        background: var(--teal);
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin: 12px auto 0;
+        display: block;
+        box-shadow: 0 4px 14px rgba(74, 155, 168, 0.35);
+    }
+
+    .btn-submit:hover {
+        background: var(--teal-dark);
+        transform: translateY(-2px);
+    }
+
+    .btn-submit:disabled {
+        background: #bfcfd3;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .result-box {
+        display: none;
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        margin-top: 22px;
+        text-align: center;
+        animation: fadeSlide 0.4s ease;
+    }
+
+    .result-box.sesuai {
+        background: linear-gradient(135deg, #edfced, #ccf0cc);
+        border: 2px solid #4caf50;
+    }
+
+    .result-box.meragukan {
+        background: linear-gradient(135deg, #fffaec, #fff0ba);
+        border: 2px solid var(--yellow);
+    }
+
+    .result-box.penyimpangan {
+        background: linear-gradient(135deg, #fff5f5, #ffd8d0);
+        border: 2px solid var(--red);
+    }
+
+    .result-emoji {
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+
+    .result-title {
+        font-family: 'Nunito', sans-serif;
+        font-size: 21px;
+        font-weight: 900;
+        margin-bottom: 6px;
+    }
+
+    .result-score {
+        font-size: 13px;
+        color: var(--text-light);
+        margin-bottom: 14px;
+    }
+
+    .result-desc {
+        font-size: 14px;
+        line-height: 1.75;
+        color: var(--text);
+        margin-bottom: 18px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .result-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .btn-reset {
+        background: white;
+        border: 2px solid var(--teal);
+        color: var(--teal);
+        padding: 9px 22px;
+        border-radius: 30px;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .btn-reset:hover {
+        background: var(--teal);
+        color: white;
+    }
+
+    @media (max-width: 600px) {
         .tk-hero {
-            background: var(--sand);
-            padding: 28px 40px;
-            border-bottom: 3px solid var(--sand-dark);
+            padding: 20px 16px;
         }
 
-        .tk-hero h2 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 24px;
-            font-weight: 900;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .tk-hero p {
-            font-size: 14px;
-            color: var(--text-light);
-            max-width: 820px;
-            line-height: 1.75;
-            text-align: center;
-            margin: 0 auto;
-        }
-
-        /* AGE TABS */
-        .age-tabs-wrapper {
-            background: white;
-            border-bottom: 2px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 90;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
-
-        .age-tabs {
-            display: flex;
-            justify-content: center;
-            overflow-x: auto;
-            scrollbar-width: none;
-            padding: 0;
-        }
-
-        .age-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .age-tab {
-            flex: 1;
-            min-width: 0;
-            max-width: 160px;
-            padding: 15px 10px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--text-light);
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
-            white-space: nowrap;
-            text-align: center;
-        }
-
-        .age-tab:hover {
-            color: var(--teal);
-        }
-
-        .age-tab.active {
-            color: var(--teal-dark);
-            border-bottom-color: var(--teal);
-            background: var(--teal-light);
-        }
-
-        /* KUESIONER */
         .kuesioner-container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 28px 20px 60px;
-        }
-
-        .kuesioner-panel {
-            display: none;
-        }
-
-        .kuesioner-panel.active {
-            display: block;
-            animation: fadeSlide 0.32s ease;
-        }
-
-        @keyframes fadeSlide {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            padding: 14px 10px 50px;
         }
 
         .kuesioner-header {
-            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-            border-radius: var(--radius);
-            padding: 20px 24px;
-            margin-bottom: 16px;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .tools-box {
-            background: white;
-            border-radius: 12px;
-            padding: 12px 16px;
-            margin-bottom: 14px;
-            border: 1.5px solid #ddeef0;
-            display: flex;
-            gap: 10px;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .tools-box .ti {
-            font-size: 18px;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-
-        .tools-box strong {
-            color: var(--teal-dark);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .tip-box {
-            background: #fff8ee;
-            border-left: 4px solid var(--accent);
-            border-radius: 0 10px 10px 0;
-            padding: 11px 15px;
-            margin-bottom: 16px;
-            font-size: 13px;
-            color: #7a5a20;
-            line-height: 1.6;
-        }
-
-        .tip-box strong {
-            color: #b07020;
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: var(--text-light);
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .progress-bar-wrap {
-            background: #e0ecee;
-            border-radius: 50px;
-            height: 9px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--teal), var(--accent));
-            border-radius: 50px;
-            transition: width 0.4s ease;
-            width: 0%;
-        }
-
-        .question-card {
-            background: white;
-            border-radius: 14px;
-            padding: 18px 20px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 2px solid transparent;
-            transition: border-color 0.2s, background 0.2s;
-        }
-
-        .question-card.answered-ya {
-            border-color: var(--green);
-            background: #f3fdf3;
-        }
-
-        .question-card.answered-tidak {
-            border-color: #ddd;
-            background: #fafafa;
-        }
-
-        .q-top {
-            display: flex;
-            gap: 11px;
-            align-items: flex-start;
-            margin-bottom: 12px;
-        }
-
-        .qnum {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 25px;
-            height: 25px;
-            background: var(--teal-light);
-            color: var(--teal-dark);
-            border-radius: 50%;
-            font-size: 11px;
-            font-weight: 800;
-            flex-shrink: 0;
-            margin-top: 2px;
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .q-content {
-            flex: 1;
-        }
-
-        .question-text {
-            font-size: 14px;
-            line-height: 1.7;
-            color: var(--text);
-        }
-
-        .domain-tag {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 30px;
-            margin-top: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-
-        .domain-tag.gerak-kasar {
-            background: #fff0e0;
-            color: #b05010;
-        }
-
-        .domain-tag.gerak-halus {
-            background: #e0eeff;
-            color: #1050a0;
-        }
-
-        .domain-tag.bicara {
-            background: #e8f8e8;
-            color: #206020;
-        }
-
-        .domain-tag.sosialisasi {
-            background: #f5e0ff;
-            color: #6020a0;
-        }
-
-        .answer-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .ans-btn {
-            flex: 1;
-            padding: 9px;
-            border-radius: 10px;
-            border: 2px solid #e0e0e0;
-            background: white;
-            font-family: 'Nunito', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.18s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .ans-btn.ya {
-            color: var(--green);
-        }
-
-        .ans-btn.tidak {
-            color: #e66969;
-        }
-
-        .ans-btn.ya:hover,
-        .ans-btn.ya.selected {
-            background: var(--green);
-            color: white;
-            border-color: var(--green);
-        }
-
-        .ans-btn.tidak:hover,
-        .ans-btn.tidak.selected {
-            background: #f56c6c;
-            color: #ffffff;
-            border-color: #f56c6c;
-        }
-
-        .btn-submit {
-            background: var(--teal);
-            border: none;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 800;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.2s;
-            margin: 12px auto 0;
-            display: block;
-            box-shadow: 0 4px 14px rgba(74, 155, 168, 0.35);
-        }
-
-        .btn-submit:hover {
-            background: var(--teal-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-submit:disabled {
-            background: #bfcfd3;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .result-box {
-            display: none;
-            border-radius: var(--radius);
-            padding: 28px 24px;
-            margin-top: 22px;
+            flex-direction: column;
             text-align: center;
-            animation: fadeSlide 0.4s ease;
         }
 
-        .result-box.sesuai {
-            background: linear-gradient(135deg, #edfced, #ccf0cc);
-            border: 2px solid #4caf50;
+        .age-tab {
+            font-size: 12px;
+            padding: 12px 6px;
         }
+    }
+</style>
 
-        .result-box.meragukan {
-            background: linear-gradient(135deg, #fffaec, #fff0ba);
-            border: 2px solid var(--yellow);
-        }
-
-        .result-box.penyimpangan {
-            background: linear-gradient(135deg, #fff5f5, #ffd8d0);
-            border: 2px solid var(--red);
-        }
-
-        .result-emoji {
-            font-size: 50px;
-            margin-bottom: 10px;
-        }
-
-        .result-title {
-            font-family: 'Nunito', sans-serif;
-            font-size: 21px;
-            font-weight: 900;
-            margin-bottom: 6px;
-        }
-
-        .result-score {
-            font-size: 13px;
-            color: var(--text-light);
-            margin-bottom: 14px;
-        }
-
-        .result-desc {
-            font-size: 14px;
-            line-height: 1.75;
-            color: var(--text);
-            margin-bottom: 18px;
-            max-width: 520px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .result-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .btn-reset {
-            background: white;
-            border: 2px solid var(--teal);
-            color: var(--teal);
-            padding: 9px 22px;
-            border-radius: 30px;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-reset:hover {
-            background: var(--teal);
-            color: white;
-        }
-
-        @media (max-width: 600px) {
-            .tk-hero {
-                padding: 20px 16px;
-            }
-
-            .kuesioner-container {
-                padding: 14px 10px 50px;
-            }
-
-            .kuesioner-header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .age-tab {
-                font-size: 12px;
-                padding: 12px 6px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="tk-hero">
+<div class="tk-hero">
         <h2>Hai Bunda!</h2>
         <p>
             <strong>Milestone</strong> adalah tahapan perkembangan yang biasanya dicapai anak sesuai usianya,
