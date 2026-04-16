@@ -881,7 +881,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi 48% dari kebutuhan sehari. Warna kunyit memberikan warna kuning menarik yang disukai bayi.'
                     },
                     {
-                        img: 'assets/img/Bubur-Sup-Telur.jpg',   // ← file lokal
+                        img: '../assets/img/Bubur-Sup-Telur.jpg',   // ← file lokal
                         title: 'Bubur Sup Telur Daging Kacang Merah',
                         tags: ['Protein Tinggi', 'Serat'],
                         kkal: '98 kkal', protein: '45.1 gr', lemak: '3.6 gr',
@@ -893,7 +893,7 @@ include '../layout/header.php';
                         tips: 'Kacang merah kaya zat besi dan serat yang baik untuk pencernaan bayi. Pastikan sudah benar-benar empuk sebelum dihaluskan.'
                     },
                     {
-                        img: 'assets/img/Bubur-Kanju.jpg',   // ← file lokal
+                        img: '../assets/img/Bubur-Kanju.jpg',   // ← file lokal
                         title: 'Bubur Kanji Rumbi Ayam dan Udang',
                         tags: ['Rempah Khas', 'Protein Ganda'],
                         kkal: '87 kkal', protein: '5.1 gr', lemak: '2.9 gr',
@@ -905,7 +905,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi 45% dari kebutuhan sehari. Rempah-rempah khas Nusantara memberikan aroma yang memperkenalkan cita rasa lokal pada bayi.'
                     },
                     {
-                        img: 'assets/img/Puding-Kentang.jpg',   // ← file lokal
+                        img: '../assets/img/Puding-Kentang.jpg',   // ← file lokal
                         title: 'Puding Kentang Ayam dan Telur',
                         tags: ['Kukus', 'Puding Bayi'],
                         kkal: '95 kkal', protein: '4.0 gr', lemak: '3.6 gr',
@@ -927,7 +927,7 @@ include '../layout/header.php';
                 infoPorsi: '½ – ¾ mangkok ukuran 250 ml (125–200 ml)',
                 recipes: [
                     {
-                        img: 'assets/img/Nasi-Tim-Tuna.jpg',
+                        img: '../assets/img/Nasi-Tim-Tuna.jpg',
                         title: 'Nasi Tim Ikan Tuna Telur Puyuh',
                         tags: ['Tim', 'Omega-3'],
                         kkal: '120 kkal', protein: '4.6 gr', lemak: '4.3 gr',
@@ -939,7 +939,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi 40% dari kebutuhan sehari. Ikan tuna kaya omega-3 yang baik untuk perkembangan otak bayi.'
                     },
                     {
-                        img: 'assets/img/Nasi-tim-lele.jpg',   // ← file lokal
+                        img: '../assets/img/Nasi-tim-lele.jpg',   // ← file lokal
                         title: 'Nasi Tim Ayam Lele Cincang',
                         tags: ['Tim', 'Ikan Air Tawar'],
                         kkal: '125 kkal', protein: '4.5 gr', lemak: '4.9 gr',
@@ -951,7 +951,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi 41% dari kebutuhan sehari. Ikan lele merupakan sumber protein hewani yang terjangkau dan mudah ditemukan.'
                     },
                     {
-                        img: 'assets/img/Mie-Kukus.jpg',   // ← file lokal
+                        img: '../assets/img/Mie-Kukus.jpg',   // ← file lokal
                         title: 'Mie Kukus Telur Puyuh',
                         tags: ['Kukus', 'Finger Food'],
                         kkal: '135 kkal', protein: '5.1 gr', lemak: '7.6 gr',
@@ -963,7 +963,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi 45% dari kebutuhan sehari. Bentuk yang bisa dipegang membantu melatih motorik halus bayi.'
                     },
                     {
-                        img: 'assets/img/Nasi-Tim-Ikan-Telur-Sayuran.jpg',   // ← file lokal
+                        img: '../assets/img/Nasi-Tim-Ikan-Telur-Sayuran.jpg',   // ← file lokal
                         title: 'Nasi Tim Ikan Telur Sayuran',
                         tags: ['Tim', 'Sayuran Hijau'],
                         kkal: '117 kkal', protein: '4.8 gr', lemak: '4.5 gr',
@@ -975,7 +975,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi 39% dari kebutuhan sehari. Sawi hijau kaya vitamin C dan zat besi yang baik untuk imunitas bayi.'
                     },
                     {
-                        img: 'assets/img/Tim-Bubur-Manado-Daging-dan-Udang.jpg',   // ← file lokal
+                        img: '../assets/img/Tim-Bubur-Manado-Daging-dan-Udang.jpg',   // ← file lokal
                         title: 'Tim Bubur Manado Daging dan Udang',
                         tags: ['Bubur Manado', 'Protein Ganda'],
                         kkal: '119 kkal', protein: '6.4 gr', lemak: '4.4 gr',
@@ -997,7 +997,7 @@ include '../layout/header.php';
                 infoPorsi: '¾ – 1 mangkok ukuran 250 ml per makan',
                 recipes: [
                     {
-                        img: 'assets/img/Nasi-Sup-Telur.jpg',
+                        img: '../assets/img/Nasi-Sup-Telur.jpg',
                         title: 'Nasi Sup Telur Puyuh Bola Tahu Ayam',
                         tags: ['Sup', 'Finger Food'],
                         kkal: '260 kkal', protein: '10.4 gr', lemak: '10.7 gr',
@@ -1009,7 +1009,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi 47.2% dari kebutuhan sehari. Bola tahu ayam yang kenyal menjadi finger food yang disukai anak.'
                     },
                     {
-                        img: 'assets/img/Nasi-Soto-Ayam.jpg',
+                        img: '../assets/img/Nasi-Soto-Ayam.jpg',
                         title: 'Nasi Soto Ayam Kuah Kuning',
                         tags: ['Soto', 'Kuah Kuning'],
                         kkal: '263 kkal', protein: '9.5 gr', lemak: '10.9 gr',
@@ -1021,7 +1021,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi 47.8% dari kebutuhan sehari. Soto ayam kuah kuning kaya rempah yang baik untuk imunitas anak.'
                     },
                     {
-                        img: 'assets/img/Sup-Telur-Puyuh.jpg',
+                        img: '../assets/img/Sup-Telur-Puyuh.jpg',
                         title: 'Sup Telur Puyuh Ikan Air Tawar Labu Kuning',
                         tags: ['Sup', 'Ikan Air Tawar'],
                         kkal: '261 kkal', protein: '13.6 gr', lemak: '9.1 gr',
@@ -1033,7 +1033,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi 47.5% dari kebutuhan sehari. Ikan nila kaya protein dan mudah dicerna oleh anak.'
                     },
                     {
-                        img: 'assets/img/Nasi-Ikan-Kuah-Kuning.jpg',
+                        img: '../assets/img/Nasi-Ikan-Kuah-Kuning.jpg',
                         title: 'Nasi Ikan Kuah Kuning',
                         tags: ['Kuah Kuning', 'Ikan Kembung'],
                         kkal: '267 kkal', protein: '28.5 gr', lemak: '10.7 gr',
@@ -1045,7 +1045,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi 48.5% dari kebutuhan sehari. Ikan kembung kaya omega-3 dan kunyit memiliki sifat anti-inflamasi yang baik.'
                     },
                     {
-                        img: 'assets/img/Nugget-Tempe-Ayam-Sayuran.jpg',
+                        img: '../assets/img/Nugget-Tempe-Ayam-Sayuran.jpg',
                         title: 'Nugget Tempe Ayam Sayuran',
                         tags: ['Nugget', 'Finger Food', 'Tempe'],
                         kkal: '191 kkal', protein: '10.5 gr', lemak: '9.0 gr',
