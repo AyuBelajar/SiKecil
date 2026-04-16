@@ -857,7 +857,7 @@ include '../layout/header.php';
                 infoPorsi: 'Mulai 2-3 sdm, tingkatkan hingga ½ mangkok (125ml)',
                 recipes: [
                     {
-                        img: 'assets/img/bubur-ikan.jpeg',   // ← file lokal
+                        img: '../assets/img/bubur-ikan.jpeg',   // ← file lokal
                         title: 'Bubur Singkong Isi Ikan & Ayam',
                         tags: ['Karbohidrat', 'Protein Ganda'],
                         kkal: '91 kkal', protein: '3.1 gr', lemak: '3.5 gr',
@@ -869,7 +869,7 @@ include '../layout/header.php';
                         tips: 'Kontribusi energi sebesar 45% dari kebutuhan makanan tambahan sehari. Pastikan singkong dimasak hingga benar-benar lunak sebelum dihaluskan.'
                     },
                     {
-                        img: 'assets/img/bubur-ayam.jpg',   // ← file lokal
+                        img: '../assets/img/bubur-ayam.jpg',   // ← file lokal
                         title: 'Bubur Soto Ayam Santan',
                         tags: ['Soto', 'Kuah Kuning'],
                         kkal: '96 kkal', protein: '4.6 gr', lemak: '4.1 gr',
