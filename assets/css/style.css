@@ -365,7 +365,7 @@ nav {
   line-height: 1;
 }
 .tentang-card .card-icon-wrap {
-  width: 56px; height: 56px;
+  width: 120px; height: 120px;
   border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.6rem;
@@ -374,6 +374,12 @@ nav {
 .card-bg     .card-icon-wrap { background: rgba(58,172,168,0.18); }
 .card-yellow .card-icon-wrap { background: rgba(245,200,66,0.25); }
 .card-soft   .card-icon-wrap { background: rgba(58,172,168,0.12); }
+.card-icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
 .tentang-card h3 { font-family: 'Nunito', sans-serif; font-size: 1.2rem; font-weight: 900; color: var(--text-dark); margin-bottom: 10px; }
 .tentang-card p  { font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
 
