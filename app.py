@@ -32,13 +32,30 @@ def predict():
         features   = np.array([[umur, gender_enc, tinggi]])
 
         print(">> Features:", features)
-
         pred_num   = model.predict(features)[0]
         hasil_teks = le_label.inverse_transform([pred_num])[0]
 
-        print(">> Hasil:", hasil_teks)
+        # Konversi label ke Bahasa Indonesia
+        mapping_label = {
+        "Normal": "Normal",
+        "normal": "Normal",
 
-        return jsonify({'status': 'success', 'status_gizi': hasil_teks})
+        "Stunted": "Stunting",
+        "stunted": "Stunting",
+
+        "Severely Stunted": "Sangat Stunting",
+        "severely stunted": "Sangat Stunting",
+
+        "Tall": "Tinggi",
+        "tall": "Tinggi"
+        }
+
+        hasil_teks = mapping_label.get(hasil_teks, hasil_teks)
+
+        return jsonify({
+        'status': 'success',
+        'status_gizi': hasil_teks
+})
 
     except Exception as e:
         import traceback
