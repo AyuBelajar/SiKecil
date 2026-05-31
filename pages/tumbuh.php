@@ -113,12 +113,30 @@ include '../layout/header.php';
         border: 2px solid transparent;
         transition: border-color 0.2s, box-shadow 0.2s;
         overflow: hidden;
+        text-align: center; /* 1. Bikin wadah foto otomatis terdorong ke rata tengah */
     }
     .question-card.answered-ya { border-color: var(--tk-green); box-shadow: 0 3px 14px rgba(92,184,92,0.2); }
     .question-card.answered-tidak { border-color: #ddd; }
 
-    .q-photo { width: auto; height: auto; overflow: hidden; position: relative; background: var(--tk-teal-light); }
-    .q-photo img { width: 100%; height: auto; object-fit: contain; display: block; transition: transform 0.4s ease; }
+    /* PERBAIKAN UKURAN GAMBAR & GARIS HITAM */
+    .q-photo { 
+        position: relative; /* 2. KUNCI: Menahan garis hitam & tulisan agar tidak bocor keluar halaman! */
+        display: inline-block; /* 3. Membuat wadah membungkus pas seukuran foto aslinya */
+        height: 250px; /* Tinggi maksimal foto */
+        max-width: 100%;
+        margin-top: 15px; /* Memberi sedikit jarak dari batas atas card */
+        border-radius: 10px; /* Biar sudut fotonya agak membulat manis */
+        overflow: hidden; 
+    }
+    .q-photo img { 
+        height: 100%; 
+        width: auto; 
+        max-width: 100%; 
+        object-fit: contain; 
+        display: block; 
+        transition: transform 0.4s ease; 
+    }
+    
     .question-card:hover .q-photo img { transform: scale(1.03); }
     
     .q-photo-overlay {
@@ -148,6 +166,7 @@ include '../layout/header.php';
         background: linear-gradient(0deg, rgba(0,0,0,0.55) 0%, transparent 100%);
         font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.9);
         text-transform: uppercase; letter-spacing: 0.4px;
+        text-align: left;
     }
 
     .q-photo.loading {
@@ -160,7 +179,15 @@ include '../layout/header.php';
         100% { background-position: -200% 0; }
     }
 
-    .q-main { padding: 16px 18px 14px; display: flex; flex-direction: column; gap: 12px; }
+    /* KEMBALIKAN TEKS PERTANYAAN KE KIRI */
+    .q-main { 
+        padding: 16px 18px 14px; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 12px; 
+        text-align: left; /* Mencegah teks pertanyaan ikut ke tengah */
+    }
+
     .question-text { font-size: 14px; line-height: 1.75; }
 
     .answer-buttons { display: flex; gap: 10px; }
@@ -257,7 +284,7 @@ include '../layout/header.php';
     @media (max-width: 600px) {
         .domain-breakdown { grid-template-columns: 1fr; }
         .age-tab { font-size: 12px; padding: 12px 6px; }
-        .q-photo { height: 160px; }
+        .q-photo { height: 180px; } /* Di HP gambarnya jadi lebih pendek sedikit biar rapi */
     }
 </style>
 
@@ -287,7 +314,7 @@ include '../layout/header.php';
 </div>
 
 <script>
-// Pastikan path gambar disesuaikan dengan folder assets di proyekmu (misal: '../assets/images/')
+// Pastikan nama file gambar di dalam folder assets/img/ sudah sama persis (termasuk huruf besar/kecil & ekstensi .png/.jpeg)
 const photoMap = {
     '0-2': [
         'mata bayi mengikuti wol.png',
@@ -327,9 +354,9 @@ const photoMap = {
     ],
     '9-11': [
         'bayi megang erat pensil.png',
-        'bayi menyomot remahan.png',
-        'bayi membenturkan 2 kubus.png',
-        'bayi menarik diri berdiri.png',
+        '9-11-2.jpeg',
+        '9-11-3.jpeg',
+        '9-11-4.jpeg',
         'bayi nyoba bangun terus duduk.png',
         'bayi nyoba berdiri lama.png',
         'bayi mencoba merespon.png',
@@ -339,7 +366,7 @@ const photoMap = {
     ],
     '12-17': [
         '12-17-1.jpeg', '12-17-2.jpeg', '12-17-3.jpeg', '12-17-4.jpeg', '12-17-5.jpeg',
-        '12-17-6.jpeg', '12-17-7.jpeg', '12-17-8.jpeg', '12-17-9.jpeg', '12-17-10.jpeg',
+        '12-17-6.jpeg', 'tepuk tangan.jpeg', '12-17-8.jpeg', '12-17-9.jpeg', '12-17-10.jpeg',
     ],
     '18-23': [
         '18-23-1.jpeg', '18-23-2.jpeg', '18-23-3.jpeg', '18-23-4.jpeg', '18-23-5.jpeg',
@@ -371,8 +398,8 @@ const photoCaptions = {
         'Bayi makan biskuit sendiri'
     ],
     '9-11': [
-        'Bayi menggenggam pensil erat', 'Bayi memungut remahan biskuit', 'Bayi membenturkan dua kubus',
-        'Bayi menarik diri ke posisi berdiri', 'Bayi duduk sendiri', 'Bayi berdiri berpegangan',
+        'Bayi menggenggam pensil erat', 'Bayi mengambi benda kecil dengan ibu jari dan jari telunjuknya', 'Bayi mencari mainanannya',
+        'Bayi sudah bisa merangkak', 'Bayi duduk sendiri', 'Bayi berdiri berpegangan',
         'Bermain peek-a-boo dengan ibu', 'Bayi mengenal orang baru', 'Bayi meniru kata-kata',
         'Bayi mengerti kata "jangan"'
     ],
@@ -454,9 +481,9 @@ const kpspData = {
         tools: '2 kubus, pensil, kismis/kacang-kacangan/potongan biskuit',
         questions: [
             { text: 'Letakkan pensil di telapak tangan bayi, lalu coba ambil kembali perlahan. Apakah bayi menggenggamnya dengan erat sehingga Anda kesulitan mengambilnya?', domain: 'gerak-halus', label: 'Motorik Halus' },
-            { text: 'Taruh kismis di atas meja. Apakah bayi bisa memungutnya menggunakan jari-jarinya (meski dengan cara menggerapai)?', domain: 'gerak-halus', label: 'Motorik Halus' },
-            { text: 'Berikan 2 kubus kepada bayi. Apakah ia bisa membenturkan atau mempertemukan kedua kubus tersebut tanpa bantuan?', domain: 'gerak-halus', label: 'Motorik Halus' },
-            { text: 'Apakah bayi sudah bisa menarik dirinya sendiri ke posisi berdiri tanpa dibantu?', domain: 'gerak-kasar', label: 'Motorik Kasar' },
+            { text: 'Apakah bayi dapat mengambil benda kecil (seperti kismis atau potongan biskuit) menggunakan ibu jari dan jari telunjuknya, bukan dengan cara menggerapai seluruh tangan?', domain: 'gerak-halus', label: 'Motorik Halus' },
+            { text: 'Sembunyikan mainan bayi di depannya (misalnya ditutup kain atau diletakkan di balik punggung Anda). Apakah bayi mencari mainan tersebut dan tidak langsung menyerah?', domain: 'gerak-halus', label: 'Motorik Halus' },
+            { text: 'Apakah bayi sudah bisa merangkak dengan menggerakkan kedua tangan dan lututnya secara bergantian untuk berpindah tempat?', domain: 'gerak-kasar', label: 'Motorik Kasar' },
             { text: 'Apakah bayi sudah bisa duduk sendiri dari posisi tidur atau tengkurap tanpa dibantu?', domain: 'gerak-kasar', label: 'Motorik Kasar' },
             { text: 'Apakah bayi bisa berdiri sambil berpegangan pada kursi atau meja selama minimal 30 detik?', domain: 'gerak-kasar', label: 'Motorik Kasar' },
             { text: 'Jika Anda bersembunyi di balik sesuatu lalu muncul kembali secara berulang, apakah bayi terlihat menunggu atau mencari Anda?', domain: 'sosialisasi', label: 'Sosialisasi & Kemandirian' },
@@ -556,11 +583,12 @@ function buildPanel(key) {
     const photos = photoMap[key];
     const captions = photoCaptions[key];
 
+    // GAMBAR DIPANGGIL DARI FOLDER ../assets/img/
     const qs = d.questions.map((q, i) => `
     <div class="question-card" id="qcard-${s}-${i}">
       <div class="q-photo loading" id="qphoto-${s}-${i}">
         <img
-          src="${photos[i]}"
+          src="../assets/img/${photos[i]}"
           alt="${captions[i]}"
           loading="lazy"
           onload="this.parentElement.classList.remove('loading')"
