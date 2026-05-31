@@ -33,7 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       header('Location: ' . htmlspecialchars($redirect));
       exit;
     } else {
-      $errors[] = 'Email atau password salah.';
+      // PERUBAHAN: Pesan error dibuat lebih jelas
+      $errors[] = 'Email atau password yang Anda masukkan salah. Silakan periksa kembali.';
     }
   }
 }
@@ -43,7 +44,7 @@ $basePath = '../';
 include '../layout/header.php';
 ?>
 
-<div class="page-wrapper" style="display:flex;align-items:center;justify-content:center;">
+<div class="page-wrapper" style="display:flex;align-items:center;justify-content:center; min-height: 70vh;">
   <div class="form-card">
     <div class="page-icon">👤</div>
     <h1>Masuk ke SiKecil</h1>
@@ -61,15 +62,19 @@ include '../layout/header.php';
       <div class="alert alert-error">Silakan login terlebih dahulu untuk mengakses halaman tersebut.</div>
     <?php endif; ?>
 
-    <?php showFlash(); ?>
+    <?php if (function_exists('showFlash')) { showFlash(); } ?>
 
     <form method="POST">
       <label class="form-label">Email</label>
-      <input class="form-input" type="email" name="email" placeholder="email@kamu.com"
+      <input class="form-input" type="email" name="email" placeholder="email@kamu.com" 
         value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required />
 
       <label class="form-label">Password</label>
       <input class="form-input" type="password" name="password" placeholder="••••••••" required />
+
+      <div style="text-align: right; margin-bottom: 15px;">
+        <a href="lupa_password.php" style="color: var(--teal); font-size: 0.85rem; text-decoration: none; font-weight: 600;">Lupa Password?</a>
+      </div>
 
       <button class="form-btn" type="submit">Masuk</button>
     </form>
