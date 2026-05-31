@@ -1128,7 +1128,7 @@ include '../layout/header.php';
                         tips: 'Menu barat versi lokal yang kaya akan zat besi, kalsium dari susu, serta omega-3 dari ikan tuna untuk stimulasi kecerdasan otak anak usia di atas 1 tahun.'
                     },
                     {
-                        img: '../assets/img/Opor-Tahu-Tempe-tanpa-Santan.jpg',
+                        img: '../assets/img/Opor-Tahu-Tempe-tanpa-Santan.png',
                         title: 'Opor Tahu Tempe tanpa Santan',
                         tags: ['Menu Kuah', 'Nabati'],
                         kkal: '145 kkal', protein: '7.8 gr', lemak: '6.5 gr',
@@ -1161,7 +1161,7 @@ include '../layout/header.php';
                         tips: 'Meskipun tanpa santan, perpaduan tahu dan tempe tetap memberikan asupan protein nabati yang padat kalori dan sangat ramah di kantong.'
                     },
                     {
-                        img: '../assets/img/Sup-Rolade-Daging.jpg',
+                        img: '../assets/img/Sup-Rolade-Daging.png"',
                         title: 'Sup Rolade Daging',
                         tags: ['Sup Bening', 'Sup Daging'],
                         kkal: '245 kkal', protein: '11.2 gr', lemak: '9.8 gr',
