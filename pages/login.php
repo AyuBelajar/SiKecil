@@ -73,7 +73,7 @@ include '../layout/header.php';
       <input class="form-input" type="password" name="password" placeholder="••••••••" required />
 
       <div style="text-align: right; margin-bottom: 15px;">
-        <a href="lupa_password.php" style="color: var(--teal); font-size: 0.85rem; text-decoration: none; font-weight: 600;">Lupa Password?</a>
+        <a href="lupapw.php" style="color: var(--teal); font-size: 0.85rem; text-decoration: none; font-weight: 600;">Lupa Password?</a>
       </div>
 
       <button class="form-btn" type="submit">Masuk</button>
