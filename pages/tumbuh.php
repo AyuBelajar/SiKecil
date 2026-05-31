@@ -345,12 +345,12 @@ const photoMap = {
         'bayi memegang 2 kubus.png',
         'bayi merayap wol.png',
         'bayi megang benda ke kiri kanan.png',
+        'bayi makan sendiri.png',
         'bayi belajar duduk.png',
         'bayi dipegang dii ketiaknya.png',
         'bayi meraih mainan dari luar jangkauan.png',
         'bayi menoleh ketika dipanggil.png',
         'bayi bilang ma-ma.png',
-        'bayi makan sendiri.png',
     ],
     '9-11': [
         'bayi megang erat pensil.png',
@@ -393,9 +393,8 @@ const photoCaptions = {
     ],
     '6-8': [
         'Bayi memungut benda kecil', 'Bayi memegang dua kubus', 'Bayi mencari benda yang jatuh',
-        'Bayi memindahkan mainan antar tangan', 'Bayi duduk mandiri', 'Bayi berdiri ditopang',
+        'Bayi memindahkan mainan antar tangan', 'Bayi makan biskuit sendiri', 'Bayi duduk mandiri', 'Bayi berdiri ditopang',
         'Bayi meraih mainan favorit', 'Bayi menoleh mendengar bisikan', 'Bayi mengucapkan suku kata',
-        'Bayi makan biskuit sendiri'
     ],
     '9-11': [
         'Bayi menggenggam pensil erat', 'Bayi mengambi benda kecil dengan ibu jari dan jari telunjuknya', 'Bayi mencari mainanannya',
@@ -468,11 +467,11 @@ const kpspData = {
             { text: 'Perlihatkan gulungan wool merah kepada bayi, lalu jatuhkan ke lantai. Apakah bayi mencoba mencarinya, misalnya dengan melihat ke bawah meja atau ke lantai?', domain: 'gerak-halus', label: 'Motorik Halus' },
             { text: 'Apakah bayi pernah memindahkan mainan atau biskuit dari satu tangan ke tangan yang lain? Benda panjang seperti sendok atau kerincingan bertangkai tidak dihitung.', domain: 'gerak-halus', label: 'Motorik Halus' },
             { text: 'Tanpa disangga bantal, kursi, atau dinding, apakah bayi bisa duduk sendiri selama 60 detik?', domain: 'gerak-kasar', label: 'Motorik Kasar' },
+            { text: 'Apakah bayi sudah bisa memegang dan makan biskuit atau kue kering sendiri?', domain: 'gerak-kasar', label: 'Motorik Kasar' },
             { text: 'Jika Anda mengangkat bayi ke posisi berdiri dengan memegang ketiaknya, apakah ia bisa menopang sebagian berat badannya dengan kedua kakinya?', domain: 'gerak-kasar', label: 'Motorik Kasar' },
             { text: 'Letakkan mainan favorit bayi di luar jangkauannya. Apakah ia berusaha meraihnya dengan mengulurkan tangan atau condong ke arah mainan tersebut?', domain: 'sosialisasi', label: 'Sosialisasi & Kemandirian' },
             { text: 'Saat bayi bermain sendiri dan ada orang yang diam-diam berdiri di belakangnya, apakah bayi menoleh saat mendengar suara pelan atau bisikan?', domain: 'bicara', label: 'Bicara & Bahasa' },
             { text: 'Apakah bayi sudah bisa mengucapkan 2 suku kata yang sama, seperti "ma-ma", "da-da", atau "pa-pa"?', domain: 'bicara', label: 'Bicara & Bahasa' },
-            { text: 'Apakah bayi sudah bisa memegang dan makan biskuit atau kue kering sendiri?', domain: 'sosialisasi', label: 'Sosialisasi & Kemandirian' }
         ]
     },
     '9-11': {
