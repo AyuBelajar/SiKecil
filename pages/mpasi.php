@@ -863,6 +863,54 @@ include '../layout/header.php';
                         steps: ['Tumis bumbu halus sampai harum, tambahkan daun salam dan sereh.', 'Masukkan ayam cincang masak sampai berubah warna, lalu masukan kentang, labu kuning, tahu dan wortel aduk sampai merata.', 'Tambahkan santan dan air kaldu aduk merata, matikan api.', 'Kocok telur lepas, campurkan pada tumisan. Siapkan wadah tahan panas diolesi minyak, masukkan adonan dan kukus ±20 menit.', 'Sajikan selagi hangat.'],
                         buah: ['100 gr (2 buah) jeruk – diambil sarinya'],
                         tips: 'Kontribusi energi 47.5% dari kebutuhan sehari. Puding ini memiliki tekstur lembut yang mudah ditelan bayi dan kaya nutrisi.'
+                    },
+                    {
+                        img: '../assets/img/Roti-Kukus-Kacang.jpg',
+                        title: 'Roti Kukus Kacang',
+                        tags: ['Roti', 'Camilan Sehat'],
+                        kkal: '76.2 kkal', protein: '2.5 gr', lemak: '2.6 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: ['6 lembar Roti Tawar', '3 sdt Selai Kacang'],
+                        bumbu: [],
+                        steps: ['Oles roti tawar dengan selai kacang.', 'Kukus selama 10 menit hingga roti lembut.', 'Roti Kukus Kacang siap untuk disajikan.'],
+                        buah: ['90 gr pisang ambon - lumat halus'],
+                        tips: 'Kandungan Karbohidrat Total: 11.1 g, Gula: 3.3 g, Natrium: 82.6 mg, Kalsium: 21.5 mg, Zat Besi: 0.6 mg. Memberikan variasi tekstur roti kukus lembut yang kaya protein nabati dari selai kacang.'
+                    },
+                    {
+                        img: '../assets/img/Bubur-Jagung-Muda-Hati-Ayam.jpg',
+                        title: 'Bubur Jagung Muda Hati Ayam',
+                        tags: ['Hati Ayam', 'Santan Cair'],
+                        kkal: '98.3 kkal', protein: '4.9 gr', lemak: '4.1 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: ['6 sdm nasi', '1 buah hati ayam segar, cincang halus', '1 potong tempe murni, potong kecil', '1.5 batang jagung muda / baby corn', '6 sdm santan cair murni', '2 gelas belimbing air matang'],
+                        bumbu: ['1 siung bawang merah iris tipis', '1 siung bawang putih iris tipis', '1 lembar daun salam', '1 lembar daun jeruk', '1 irisan kecil lengkuas, geprek'],
+                        steps: ['Nyalakan kompor, masukkan air matang ke dalam panci.', 'Masukkan nasi, hati ayam, jagung muda/baby corn, daun salam, daun jeruk, lengkuas.', 'Aduk, tunggu sampai mendidih.', 'Masukkan santan, aduk hingga merata, tunggu sampai matang.', 'Saring sesuaikan tekstur yang kental, lalu sajikan.'],
+                        buah: ['100 gr puree buah naga'],
+                        tips: 'Kandungan Karbohidrat: 10.7 g, Zat Besi (Fe): 1.9 mg, Vitamin A: 495.7 mcg. Hati ayam sangat bagus untuk mendongkrak cadangan zat besi bayi.'
+                    },
+                    {
+                        img: '../assets/img/Barongko.jpg',
+                        title: 'Barongko',
+                        tags: ['Kue Tradisional', 'Pisang'],
+                        kkal: '57.1 kkal', protein: '2.2 gr', lemak: '2.7 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: ['6 sdm pisang kepok halus', '3 sdm santan kental', '1 butir telur ayam ras (kocok lepas)'],
+                        bumbu: [],
+                        steps: ['Kocok telur, lalu campur dengan pisang halus dan santan.', 'Masukkan ke dalam wadah tahan panas.', 'Kukus 10-20 menit, lalu sajikan.'],
+                        buah: ['80 gr alpukat - lumat halus'],
+                        tips: 'Kandungan Karbohidrat: 6.1 g, Zat Besi (Fe): 0.6 mg, Vitamin A: 9.2 mcg. Barongko memiliki tekstur yang sangat lembut alami, ramah bagi pencernaan bayi.'
+                    },
+                    {
+                        img: '../assets/img/Kentang-Tumbuk-Keju.jpg',
+                        title: 'Kentang Tumbuk Keju',
+                        tags: ['Kentang', 'Keju & Susu'],
+                        kkal: '95.3 kkal', protein: '3.6 gr', lemak: '6.6 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: ['150 gr Kentang', '45 gr Keju parut', '225 ml Susu formula/ASI/UHT cair', '1.5 sdm Mentega'],
+                        bumbu: [],
+                        steps: ['Kukus kentang hingga matang.', 'Tambahkan mentega.', 'Tumbuk hingga halus.', 'Masak susu cair dengan keju hingga keju meleleh seluruhnya.', 'Kentang tumbuk keju siap untuk disajikan.'],
+                        buah: ['100 gr melon - diambil sarinya'],
+                        tips: 'Kandungan Karbohidrat Total: 6.1 g, Gula: 2.3 g, Natrium: 63.5 mg, Vitamin A: 203 IU, Vitamin C: 2.2 mg, Kalsium: 99.8 mg, Zinc: 0.5 mg. Kombinasi gurih keju dan mentega tinggi kalori/lemak esensial.'
                     }
                 ]
             },
@@ -933,6 +981,54 @@ include '../layout/header.php';
                         steps: ['Tumis bumbu halus sampai harum.', 'Masukkan daging sapi dan udang, tumis hingga berubah warna, lalu tambahkan air kaldu, masak sampai mendidih.', 'Masukkan nasi, labu kuning, jagung dan bayam.', 'Masukkan daun bawang yang sudah diiris, masak hingga menyusut.', 'Tambahkan garam secukupnya, koreksi rasa. Sajikan.'],
                         buah: ['180 gr (1 potong) buah naga'],
                         tips: 'Kontribusi energi 39.7% dari kebutuhan sehari. Labu kuning kaya beta-karoten yang baik untuk penglihatan bayi.'
+                    },
+                    {
+                        img: '../assets/img/Krim-Kentang-Ikan-Kembung.jpg',
+                        title: 'Krim Kentang Ikan Kembung',
+                        tags: ['Ikan Kembung', 'Krim Lembut'],
+                        kkal: '157 kkal', protein: '8.8 gr', lemak: '10.5 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: ['225 gr Daging Ikan Kembung', '60 gr Keju Parut', '3 sdm Mentega', '300 gr Kentang', '90 gr Tahu putih', '225 ml Susu UHT/Formula'],
+                        bumbu: [],
+                        steps: ['Rebus ikan kembung selama 15 Menit.', 'Campurkan semua bahan dalam satu wadah tahan panas.', 'Kukus selama 15 Menit atau hingga matang.', 'Aduk hingga tercampur rata.', 'Krim Kentang Ikan Kembung siap disajikan.'],
+                        buah: ['120 gr buah pisang - potong dadu'],
+                        tips: 'Kandungan Karbohidrat Total: 7.4 g, Gula: 1.9 g, Natrium: 68.6 mg, Kalsium: 120 mg, Zat Besi: 0.9 mg, Zinc: 0.7 mg. Tekstur kental krimi berpadu asam lemak esensial laut lokal.'
+                    },
+                    {
+                        img: '../assets/img/Stick-Kentang-Keju.jpg',
+                        title: 'Stick Kentang Keju',
+                        tags: ['Finger Food', 'Camilan Bayi'],
+                        kkal: '121 kkal', protein: '4.0 gr', lemak: '9.5 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: ['3 buah Kentang ukuran sedang', '75 gram Keju cheddar parut', '12 sdm Tepung Maizena', '3 butir Telur ayam', 'Daun Seledri Secukupnya (iris halus)'],
+                        bumbu: [],
+                        steps: ['Potong dadu kentang, kemudian rebus hingga matang.', 'Setelah itu, lumatkan kentang sampai halus dan lembut.', 'Tambahkan keju parut dan tepung maizena.', 'Kemudian masukkan daun seledri dan telur ayam.', 'Aduk semua adonan hingga kalis dan lembut.', 'Bentuk adonan memanjang dan goreng di minyak baru hingga kecokelatan.', 'Stick kentang keju siap dihidangkan untuk si kecil.'],
+                        buah: ['150 gr mangga - potong dadu'],
+                        tips: 'Kandungan Karbohidrat Total: 5.8 g, Gula: 2.3 g, Natrium: 87.8 mg, Kalsium: 100 mg, Zat Besi: 0.6 mg, Zinc: 0.6 mg. Sangat cocok melatih koordinasi tangan-mulut bayi.'
+                    },
+                    {
+                        img: '../assets/img/Ayam-Telur-Kukus.jpg',
+                        title: 'Ayam Telur Kukus',
+                        tags: ['Kukus Tradisional', 'Protein Tinggi'],
+                        kkal: '290 kkal', protein: '15.0 gr', lemak: '19.0 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: ['300 gr dada ayam fillet', '3 butir telur ayam ras', '15 sdm santan kental murni', '3 buah tahu putih', '1.5 buah wortel parut', '9 lembar daun salam', 'Daun pisang secukupnya untuk membungkus'],
+                        bumbu: ['6 buah bawang merah', '3 buah bawang putih', '3 buah kemiri', '3 cm kunyit', '3 cm jahe'],
+                        steps: ['Ulek semua bumbu halus.', 'Potong kecil-kecil ayam fillet kemudian cincang halus dengan pisau, campurkan dengan tahu hancur, telur, santan, dan bumbu halus.', 'Campur adonan ayam dengan wortel parut dan aduk merata.', 'Siapkan selembar daun pisang yang di beri selembar daun salam di atasnya.', 'Tuangkan 2 sdm adonan ayam, gulung daun pisang dan lipat di kedua ujungnya yang terbuka.', 'Lakukan hingga adonan habis, kemudian kukus ± 20 menit dengan api kecil sampai matang, lalu sajikan dengan dicincang kasar.'],
+                        buah: ['120 gr buah pepaya - potong dadu'],
+                        tips: 'Kandungan Karbohidrat: 20.5 g. Menu padat protein ganda dan lemak sehat yang efektif menambah berat badan anak.'
+                    },
+                    {
+                        img: '../assets/img/Telur-Orak-Arik-Bayam-Tahu.jpg',
+                        title: 'Telur Orak-Arik Bayam Tahu',
+                        tags: ['Tumis Cepat', 'Bahan Ekonomis'],
+                        kkal: '180 kkal', protein: '12.0 gr', lemak: '8.0 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: ['3 butir telur ayam', '1.5 potong tahu putih (haluskan)', '3 genggam daun bayam segar (cincang kasar)', 'Unsalted butter / minyak zaitun / minyak kelapa baru untuk menumis'],
+                        bumbu: ['Sedikit garam halus (opsional sesuai batas usia)'],
+                        steps: ['Tumis bayam cincang dengan sedikit butter/minyak hingga layu.', 'Tambahkan tahu putih yang sudah dihaluskan, aduk rata.', 'Masukkan kocokan telur, orak-arik bersama tahu bayam hingga matang sempurna.', 'Sajikan mendampingi nasi tim lembut hangat anak.'],
+                        buah: ['150 gr melon - potong dadu'],
+                        tips: 'Menu kilat kaya nutrisi esensial zat besi dari bayam serta protein padat murni hewani-nabati.'
                     }
                 ]
             },
@@ -1003,6 +1099,139 @@ include '../layout/header.php';
                         steps: ['Campurkan tempe, ayam cincang, wortel, keju, bawang daun, tepung terigu, tapioka, telur, bawang goreng. Aduk rata.', 'Olesi loyang dengan minyak, masukkan adonan dan ratakan. Kukus 30 menit.', 'Setelah dingin potong sesuai ukuran yang diinginkan.', 'Cairkan terigu dengan air. Celupkan nugget ke tepung basah, gulingkan ke tepung panir.', 'Simpan di kulkas 30 menit. Goreng di minyak panas sampai kuning keemasan.', 'Sajikan selagi hangat.'],
                         buah: ['270 gr buah semangka'],
                         tips: 'Kontribusi energi 34.7% dari kebutuhan sehari. Nugget tempe ayam bisa disimpan di freezer untuk stok hingga 2 minggu.'
+                    },
+                    {
+                        img: '../assets/img/Kentang-Tuna-Saus-Bayam.jpg',
+                        title: 'Kentang Tuna Saus Bayam',
+                        tags: ['Saus Creamy', 'Omega-3'],
+                        kkal: '215 kkal', protein: '12.4 gr', lemak: '11.8 gr',
+                        porsi: 'Resep untuk 1 porsi',
+                        bahan: [
+                            '35 gr daging ikan tuna (kukus/panggang, haluskan dengan garpu)',
+                            '40 gr kentang (kupas, kukus, haluskan dengan garpu)',
+                            '2 sdm daun bayam (kukus, iris halus)',
+                            '100 ml susu cair'
+                        ],
+                        bumbu: ['1/2 sdm tepung maizena',
+                            '1 sdm mentega tawar',
+                            '1 iris bawang bombay (cincang halus)'
+                        ],
+                        steps: [
+                            'Masukkan ikan tuna halus dan kentang lumat ke dalam mangkuk saji, sisihkan.',
+                            'Panaskan mentega di wajan, tumis bawang bombay hingga harum.',
+                            'Masukkan tepung maizena sambil terus diaduk cepat.',
+                            'Tuangkan susu cair perlahan, aduk terus di atas api kecil hingga teksturnya agak kental, lalu angkat.',
+                            'Tambahkan daun bayam iris ke dalam saus, aduk hingga tercampur rata.',
+                            'Tuangkan saus krim bayam hangat ke dalam wadah berisi kentang dan ikan tuna. Sajikan.'
+                        ],
+                        buah: ['120 gr pepaya - potong dadu'],
+                        tips: 'Menu barat versi lokal yang kaya akan zat besi, kalsium dari susu, serta omega-3 dari ikan tuna untuk stimulasi kecerdasan otak anak usia di atas 1 tahun.'
+                    },
+                    {
+                        img: '../assets/img/Opor-Tahu-Tempe-tanpa-Santan.jpg',
+                        title: 'Opor Tahu Tempe tanpa Santan',
+                        tags: ['Menu Kuah', 'Nabati'],
+                        kkal: '145 kkal', protein: '7.8 gr', lemak: '6.5 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: [
+                            '1 buah tempe murni (potong kecil-kecil/cincang kasar)',
+                            '2 buah tahu putih (potong kecil-kecil/hancurkan kasar)',
+                            'Secukupnya air matang untuk kuah',
+                            '1 batang serai (memarkan)',
+                            '3 lembar daun jeruk',
+                            '1 lembar daun salam',
+                            '1 cm lengkuas (geprek)',
+                            '1/2 sdt gula pasir',
+                            'Sejumput garam (opsional)'  
+                        ],  
+                        bumbu: [
+                            '3 butir bawang merah',
+                            '2 siung bawang putih',
+                            '1/4 sdt lada bubuk (sejumput saja)'
+                        ],
+                        steps: [
+                            'Haluskan bumbu (bawang merah, bawang putih, lada bubuk).',
+                            'Tumis bumbu halus dengan sedikit minyak hingga layu dan wangi.',
+                            'Masukkan serai, daun jeruk, daun salam, dan lengkuas. Aduk-aduk hingga rata, lalu tuangkan air secukupnya.',
+                            'Masukkan potongan tahu dan tempe ke dalam kuah opor.',
+                            'Tambahkan gula dan sejumput garam, aduk rata dan masak dengan api kecil hingga bumbu meresap sempurna ke dalam tahu tempe.',
+                            'Cek rasa, angkat, lalu sesuaikan tekstur cincang kasarnya sebelum disajikan hangat bersama nasi tim anak.'
+                        ],
+                        buah: ['120 gr pisang - lumat halus'],
+                        tips: 'Meskipun tanpa santan, perpaduan tahu dan tempe tetap memberikan asupan protein nabati yang padat kalori dan sangat ramah di kantong.'
+                    },
+                    {
+                        img: '../assets/img/Sup-Rolade-Daging.jpg',
+                        title: 'Sup Rolade Daging',
+                        tags: ['Sup Bening', 'Sup Daging'],
+                        kkal: '245 kkal', protein: '11.2 gr', lemak: '9.8 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: [
+                            '2 gulung rolade ayam/daging sapi (potong bulat/ukuran suapan anak)',
+                            '1 buah wortel ukuran besar (potong dadu kecil)',
+                            '1 buah kentang ukuran besar (potong dadu kecil)',
+                            '1300 ml air kaldu asli (ayam atau sapi)',
+                            '1 batang bawang prei (iris tipis)',
+                            '2 batang seledri (iris halus)',
+                            'Secukupnya minyak untuk menumis bumbu',
+                            'Secukupnya bawang goreng untuk taburan'
+                        ],
+                        bumbu: [
+                            '5-6 siung bawang putih (haluskan dengan sedikit air kaldu)',
+                            'Sejumput merica bubuk',
+                            'Secukupnya garam dan gula'
+                        ],
+                        steps: [
+                            'Siapkan semua bahan. Haluskan bawang putih menggunakan blender dengan menambahkan sedikit air kaldu.',
+                            'Panaskan wajan dengan sedikit minyak, tumis bumbu bawang putih halus hingga harum.',
+                            'Masukkan potongan wortel, aduk rata, lalu beri sedikit air kaldu agar tidak gosong.',
+                            'Tuangkan sisa air kaldu secara keseluruhan, lalu masukkan potongan kentang. Masak hingga wortel dan kentang setengah empuk.',
+                            'Masukkan potongan rolade, sejumput merica, dan secukupnya garam/gula. Masak sebentar hingga semua bahan matang sempurna, lalu koreksi rasa.',
+                            'Matikan kompor, masukkan irisan bawang prei dan seledri, aduk rata.',
+                            'Tuang ke dalam wadah saji anak, taburkan bawang merah goreng di atasnya, dan sajikan bersama nasi hangat.'
+                        ],
+                        buah: ['150 gr buah semangka - potong dadu'],
+                        tips: 'Air kaldu asli memberikan rasa gurih alami yang kuat, sehingga kamu tidak perlu menambahkan MSG atau penyedap rasa buatan untuk menggugah selera makan si kecil.'
+                    },
+                    {
+                        img: '../assets/img/Pastel-Tutup-Gindara.png',
+                        title: 'Pastel Tutup Gindara',
+                        tags: ['Panggang', 'Omega-3 Tinggi'],
+                        kkal: '240 kkal', protein: '11.5 gr', lemak: '10.2 gr',
+                        porsi: 'Resep untuk 3 porsi',
+                        bahan: [
+                            '150 gr kentang (kupas, cuci bersih)',
+                            '10 gr wortel (cincang halus)',
+                            '10 gr buncis (cincang halus)',
+                            '30 gr fillet ikan gindara (pastikan bebas duri, cincang kasar)',
+                            '1 butir telur ayam (rebus hingga matang ±15 menit, kupas, potong tipis)',
+                            'Secukupnya air matang (sedikit saja untuk mematangkan tumisan)',
+                            'Secukupnya minyak zaitun atau unsalted butter untuk menumis'
+                        ],
+                        bumbu: [
+                            'Bawang putih secukupnya (cincang halus)',
+                            'Bawang bombay secukupnya (cincang halus)',
+                            'Unsalted butter secukupnya (untuk campuran kentang lumat)',
+                            'Rempah oregano secukupnya',
+                            'Rempah thyme secukupnya',
+                            'Rempah basil secukupnya',
+                            'Rempah rosemary secukupnya'
+                        ],
+                        steps: [
+                            'Rebus buncis dan wortel yang sudah dicincang selama 3 menit, angkat dan tiriskan.',
+                            'Rebus kentang selama 30 menit atau sampai benar-benar matang empuk, hancurkan/lumatkan selagi hangat, lalu balur dan aduk rata dengan unsalted butter. Sisihkan.',
+                            'Panaskan minyak zaitun atau unsalted butter di wajan, tumis bawang putih dan bawang bombay hingga wangi.',
+                            'Masukkan buncis, wortel, dan ikan gindara. Pastikan ikan gindara terurai hancur saat ditumis.',
+                            'Taburkan rempah oregano, basil, thyme, dan rosemary secukupnya untuk aroma herbal yang harum.',
+                            'Tambahkan sedikit air matang, aduk perlahan dan diamkan sampai air mendidih serta ikan matang, lalu angkat.',
+                            'Siapkan wadah atau aluminium foil cup cup tahan panas, tuangkan tumisan ikan gindara, sayuran, beserta sisa cairan kaldunya di lapisan paling bawah.',
+                            'Letakkan irisan telur rebus secara merata di atas lapisan tumisan ikan.',
+                            'Tutup bagian paling atas dengan adonan kentang lumat secara rapi hingga menutupi seluruh permukaan wadah.',
+                            'Panggang di dalam oven dengan suhu 180°C selama 20 menit hingga bagian atas kentang agak set dan harum (Catatan: Suhu oven disesuaikan dari resep asli agar kue matang ideal tanpa gosong).',
+                            'Angkat, biarkan agak hangat, dan Pastel Tutup Gindara siap disajikan untuk si kecil.'
+                        ],
+                        buah: ['120 gr jeruk manis potong'],
+                        tips: 'Ikan gindara memiliki kandungan minyak alami yang sangat kaya akan lemak sehat dan omega-3, berpadu dengan aroma rempah herbal esensial yang sangat bagus untuk merangsang indra penciuman dan nafsu makan anak balita.'
                     }
                 ]
             }
