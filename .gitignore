@@ -1,0 +1,6 @@
+# Mengabaikan database SQLite agar tidak ter-push ke GitHub
+*.sqlite
+
+# Mengabaikan file sistem atau temporary jika ada
+*.db
+*.log
