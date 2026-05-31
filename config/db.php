@@ -1,27 +1,37 @@
 <?php
-// ══════════════════════════════════════════════════════════
-//  SiKecil – Konfigurasi Database (SQLite via PDO)
-// ══════════════════════════════════════════════════════════
-
 function getDB(): PDO {
     static $pdo = null;
 
     if ($pdo === null) {
-        // Lokasi file database SQLite (akan otomatis dibuat jika belum ada)
         $dbPath = __DIR__ . '/sikecil.sqlite';
+        $isNew = !file_exists($dbPath); // Cek apakah file database baru dibuat
 
         try {
             $pdo = new PDO('sqlite:' . $dbPath);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-            
-            // Wajib: Menyalakan dukungan Foreign Key di SQLite untuk fitur CASCADE
             $pdo->exec('PRAGMA foreign_keys = ON;');
+
+            // ── Otomatis buat tabel jika belum ada ──
+            if ($isNew) {
+                $sql = "CREATE TABLE babies (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER NOT NULL,
+                    nama TEXT NOT NULL,
+                    tanggal_lahir DATE NOT NULL,
+                    jenis_kelamin TEXT NOT NULL CHECK(jenis_kelamin IN ('L', 'P')),
+                    berat_badan REAL DEFAULT 0,
+                    tinggi_badan REAL DEFAULT 0,
+                    lingkar_kepala REAL DEFAULT 0,
+                    lingkar_lengan REAL DEFAULT 0,
+                    alergi TEXT DEFAULT '-',
+                    status_vaksin TEXT DEFAULT '-',
+                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+                );";
+                $pdo->exec($sql);
+            }
         } catch (PDOException $e) {
-            die('<div style="font-family:sans-serif;padding:40px;color:#c0392b;">
-                    <h2>⚠️ Koneksi Database Gagal</h2>
-                    <p>' . htmlspecialchars($e->getMessage()) . '</p>
-                 </div>');
+            die('Koneksi Database Gagal: ' . $e->getMessage());
         }
     }
     return $pdo;
