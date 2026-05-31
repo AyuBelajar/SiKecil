@@ -7,7 +7,7 @@ $email = $_GET['email'] ?? '';
 
 // Jika diakses tanpa email, kembalikan ke halaman lupa password
 if (!$email && $_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: lupa_password.php');
+    header('Location: lupapw.php');
     exit;
 }
 

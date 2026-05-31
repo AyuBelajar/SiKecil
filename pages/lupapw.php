@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($user) {
             // Jika email ada, arahkan ke halaman ganti password bawa parameter email
-            header('Location: ganti_password.php?email=' . urlencode($email));
+            header('Location: gantipw.php?email=' . urlencode($email));
             exit;
         } else {
             $errors[] = 'Email tidak ditemukan di sistem kami.';
