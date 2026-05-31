@@ -8,56 +8,30 @@ $db = getDB();
 
 $errors = [];
 
-// ── Tambah Biodata Bayi & Data Tumbuh Kembang ─────────────
+// ── Tambah / Update biodata bayi ──────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'tambah_bayi') {
-    $namaBayi = trim($_POST['nama_bayi'] ?? '');
-    $tglLahir = $_POST['tgl_lahir'] ?? '';
-    $jk = $_POST['jk'] ?? '';
-    $bb = $_POST['berat_badan'] ?? 0;
-    $tb = $_POST['tinggi_badan'] ?? 0;
-    $lk = $_POST['lingkar_kepala'] ?? 0;
-    $ll = $_POST['lingkar_lengan'] ?? 0;
-    $alergi = trim($_POST['alergi'] ?? '-');
-    $vaksin = trim($_POST['status_vaksin'] ?? '-');
+  $namaBayi = trim($_POST['nama_bayi'] ?? '');
+  $tglLahir = $_POST['tgl_lahir'] ?? '';
+  $jk = $_POST['jk'] ?? '';
+  $bb = $_POST['berat_badan'] ?? 0;
+  $tb = $_POST['tinggi_badan'] ?? 0;
+  $lk = $_POST['lingkar_kepala'] ?? 0;
+  $ll = $_POST['lingkar_lengan'] ?? 0;
+  $alergi = trim($_POST['alergi'] ?? '-');
+  $vaksin = trim($_POST['status_vaksin'] ?? '-');
 
-    if (!$namaBayi || !$tglLahir || !in_array($jk, ['L', 'P'])) {
-        $errors[] = 'Nama, Tanggal Lahir, dan Jenis Kelamin wajib diisi.';
-    } else {
-        try {
-            $db->beginTransaction();
-
-            // 1. Insert ke tabel babies
-            $sqlBaby = "INSERT INTO babies (user_id, nama, tanggal_lahir, jenis_kelamin, alergi, status_vaksin) VALUES (?,?,?,?,?,?)";
-            $db->prepare($sqlBaby)->execute([$user['id'], $namaBayi, $tglLahir, $jk, $alergi, $vaksin]);
-            $babyId = $db->lastInsertId();
-
-            // 2. Insert ke tabel tumbuh_kembang
-            $usiaBulan = 0; // Logika perhitungan usia bisa ditambahkan di sini
-            $sqlTumbuh = "INSERT INTO tumbuh_kembang (user_id, baby_id, usia_bulan, berat_badan, tinggi_badan, lingkar_kepala, lingkar_lengan, tanggal_ukur) 
-                          VALUES (?,?,?,?,?,?,?,?)";
-            $db->prepare($sqlTumbuh)->execute([$user['id'], $babyId, $usiaBulan, $bb, $tb, $lk, $ll, date('Y-m-d')]);
-
-            $db->commit();
-            setFlash('success', "Biodata {$namaBayi} berhasil disimpan! 🎉");
-        } catch (Exception $e) {
-            $db->rollBack();
-            setFlash('danger', "Gagal menyimpan data: " . $e->getMessage());
-        }
-        header('Location: profil.php');
-        exit;
-    }
+  if (!$namaBayi || !$tglLahir || !in_array($jk, ['L', 'P'])) {
+    $errors[] = 'Nama, Tanggal Lahir, dan Jenis Kelamin wajib diisi.';
+  } else {
+    $sql = "INSERT INTO babies (user_id, nama, tanggal_lahir, jenis_kelamin, berat_badan, tinggi_badan, lingkar_kepala, lingkar_lengan, alergi, status_vaksin) 
+            VALUES (?,?,?,?,?,?,?,?,?,?)";
+    $db->prepare($sql)->execute([$user['id'], $namaBayi, $tglLahir, $jk, $bb, $tb, $lk, $ll, $alergi, $vaksin]);
+    
+    setFlash('success', "Biodata {$namaBayi} berhasil disimpan! 🎉");
+    header('Location: profil.php');
+    exit;
+  }
 }
-
-// ── Ambil data bayi beserta data tumbuh kembang terbaru ──
-$stmtBayi = $db->prepare('
-    SELECT b.*, t.berat_badan, t.tinggi_badan, t.lingkar_kepala, t.lingkar_lengan 
-    FROM babies b
-    LEFT JOIN tumbuh_kembang t ON b.id = t.baby_id
-    WHERE b.user_id = ? 
-    GROUP BY b.id
-    ORDER BY b.created_at DESC');
-$stmtBayi->execute([$user['id']]);
-$babies = $stmtBayi->fetchAll();
 
 // ── Hapus bayi ────────────────────────────────────────────
 if (isset($_GET['hapus_bayi']) && is_numeric($_GET['hapus_bayi'])) {
