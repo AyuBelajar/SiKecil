@@ -13,8 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors[] = 'Semua bidang wajib diisi.';
   } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = 'Format email tidak valid.';
-  } elseif (strlen($password) < 6) {
-    $errors[] = 'Password minimal 6 karakter.';
+  // PERUBAHAN 1: Logika PHP diubah menjadi max 8
+  } elseif (strlen($password) > 8) {
+    $errors[] = 'Password maksimal 8 karakter.';
   } else {
     $db = getDB();
 
@@ -30,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $db->prepare("INSERT INTO users (nama, email, password) VALUES (?,?,?)")
          ->execute([$nama, $email, $hash]);
 
-      // PERUBAHAN: Pesan flash message diubah sesuai tugas, dan redirect ke login.php
       setFlash('success', 'Akun anda telah terdaftar');
       header('Location: login.php');
       exit;
@@ -67,7 +67,7 @@ include '../layout/header.php';
       <input class="form-input" type="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required />
 
       <label class="form-label">Password</label>
-      <input class="form-input" type="password" name="password" placeholder="Minimal 6 karakter" required />
+      <input class="form-input" type="password" name="password" placeholder="Maksimal 8 karakter" maxlength="8" required />
 
       <button class="form-btn" type="submit">Daftar</button>
     </form>
