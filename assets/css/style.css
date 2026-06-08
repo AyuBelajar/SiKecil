@@ -432,3 +432,34 @@ footer p { color: rgba(255,255,255,0.45); font-size: 0.85rem; }
   footer { padding: 28px 24px; flex-direction: column; text-align: center; }
   .tw-form-row { grid-template-columns: 1fr; }
 }
+
+
+/* ── PERBAIKAN NAVBAR UNTUK LAYAR HP / KECIL ── */
+@media (max-width: 850px) {
+    nav {
+        display: flex;
+        flex-direction: column; /* Mengubah susunan: Logo di atas, menu di bawah */
+        align-items: center;
+        padding: 16px;
+        gap: 15px;
+        height: auto; /* Membatalkan tinggi fixed jika sebelumnya ada */
+    }
+
+    .nav-accent {
+        display: flex;
+        flex-wrap: wrap; /* Mengizinkan tombol turun ke baris baru jika mentok */
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    .nav-btn {
+        font-size: 12px; /* Mengecilkan teks sedikit agar muat */
+        padding: 8px 14px;
+        flex: 1 1 auto; /* Membuat tombol elastis menyesuaikan ruang kosong */
+        text-align: center;
+        white-space: nowrap; /* Mencegah teks dalam tombol terpotong ke bawah */
+    }
+}
