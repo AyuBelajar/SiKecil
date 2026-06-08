@@ -421,45 +421,38 @@ footer .f-logo-img { height: 36px; }
 footer p { color: rgba(255,255,255,0.45); font-size: 0.85rem; }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 820px) {
-  nav { padding: 0 20px; }
-  .nav-accent { padding: 10px 20px 10px 24px; margin: 0 -20px; gap: 6px; }
-  .nav-btn { padding: 7px 12px; font-size: 0.8rem; }
+@media (max-width: 850px) {
+  /* 1. Perbaikan Navbar / Menu Atas */
+  nav { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 20px; 
+    gap: 15px;
+    height: auto;
+  }
+  .nav-accent { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0; /* Menghapus margin negatif yang bikin tumpah */
+    padding: 12px;
+    gap: 8px;
+    width: 100%;
+    border-radius: 16px;
+  }
+  .nav-btn { 
+    padding: 8px 12px; 
+    font-size: 0.8rem; 
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  /* 2. Perbaikan Halaman Lainnya */
   .page-wrapper { padding: 40px 24px 60px; }
   .tentang { padding: 60px 24px 70px; }
   .tentang-cards { grid-template-columns: 1fr; gap: 20px; }
   .harapan-strip { flex-direction: column; padding: 48px 24px; gap: 24px; text-align: center; }
   footer { padding: 28px 24px; flex-direction: column; text-align: center; }
   .tw-form-row { grid-template-columns: 1fr; }
-}
-
-
-/* ── PERBAIKAN NAVBAR UNTUK LAYAR HP / KECIL ── */
-@media (max-width: 850px) {
-    nav {
-        display: flex;
-        flex-direction: column; /* Mengubah susunan: Logo di atas, menu di bawah */
-        align-items: center;
-        padding: 16px;
-        gap: 15px;
-        height: auto; /* Membatalkan tinggi fixed jika sebelumnya ada */
-    }
-
-    .nav-accent {
-        display: flex;
-        flex-wrap: wrap; /* Mengizinkan tombol turun ke baris baru jika mentok */
-        justify-content: center;
-        gap: 8px;
-        width: 100%;
-        padding: 12px;
-        border-radius: 16px;
-    }
-
-    .nav-btn {
-        font-size: 12px; /* Mengecilkan teks sedikit agar muat */
-        padding: 8px 14px;
-        flex: 1 1 auto; /* Membuat tombol elastis menyesuaikan ruang kosong */
-        text-align: center;
-        white-space: nowrap; /* Mencegah teks dalam tombol terpotong ke bawah */
-    }
 }
