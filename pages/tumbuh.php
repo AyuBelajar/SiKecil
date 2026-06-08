@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+//Cek apakah user sudah login (sesuaikan 'user_id' dengan nama variabel login dari Vega)
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+//Lanjutkan memuat halaman jika sudah login
 $pageTitle = 'Tumbuh Kembang (KPSP)';
 $basePath  = '../';
 include '../layout/header.php';
