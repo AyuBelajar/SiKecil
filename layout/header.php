@@ -11,7 +11,7 @@ $_curUser = $_loggedIn ? currentUser() : null;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?= htmlspecialchars($pageTitle ?? 'Beranda') ?> – SiKecil</title>
-  <link rel="stylesheet" href="<?= $basePath ?? '' ?>assets/css/style.css?v=<?= time(); ?>" />
+  <link rel="stylesheet" href="<?= $basePath ?? '' ?>assets/css/style.css" />
 </head>
 
 <body>
