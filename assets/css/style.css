@@ -422,8 +422,8 @@ footer p { color: rgba(255,255,255,0.45); font-size: 0.85rem; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 850px) {
-  /* 1. Perbaikan Navbar / Menu Atas */
   nav { 
+    position: relative; 
     display: flex;
     flex-direction: column;
     align-items: center;

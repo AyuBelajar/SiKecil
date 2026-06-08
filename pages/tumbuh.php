@@ -43,9 +43,7 @@ include '../layout/header.php';
     .age-tabs { display: flex; justify-content: center; overflow-x: auto; scrollbar-width: none; padding: 0; }
     .age-tabs::-webkit-scrollbar { display: none; }
     .age-tab {
-        flex: 1;
-        min-width: 0;
-        max-width: 160px;
+        flex: 0 0 auto;
         padding: 15px 10px;
         font-family: 'Nunito', sans-serif;
         font-size: 14px;
