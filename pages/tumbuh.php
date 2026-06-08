@@ -42,14 +42,19 @@ include '../layout/header.php';
     }
     .age-tabs { display: flex; justify-content: center; overflow-x: auto; scrollbar-width: none; padding: 0; }
     .age-tabs::-webkit-scrollbar { display: none; }
-    .age-tabs { 
-        display: flex; 
-        flex-wrap: nowrap; 
-        justify-content: flex-start; 
-        overflow-x: auto; 
-        scrollbar-width: none; 
-        padding: 0 10px; 
-        -webkit-overflow-scrolling: touch; 
+    .age-tab {
+        flex: 0 0 auto; 
+        flex-wrap : nowrap;
+        padding: 15px 14px; 
+        font-family: 'Nunito', sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--text-light); 
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s;
+        white-space: nowrap;
+        text-align: center;
     }
     .age-tab:hover { color: var(--tk-teal); }
     .age-tab.active { color: var(--tk-teal-dark); border-bottom-color: var(--tk-teal); background: var(--tk-teal-light); }
